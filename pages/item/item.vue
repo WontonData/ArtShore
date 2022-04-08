@@ -140,7 +140,7 @@
 	          </div>
 			  
 			  
-			  <el-dialog  :visible.sync="checkout">
+			  <el-dialog class="dialog"  :visible.sync="checkout" center>
 				 <div class="popup__item" style="display: block;">
 				   <div class="popup__title h4">确认购买</div>
 				   <div class="popup__info">你确定要购买&nbsp;&nbsp;&nbsp; <strong> ZCC </strong> &nbsp;&nbsp;&nbsp;发行的 &nbsp;&nbsp;&nbsp;<strong> {{title}} </strong>&nbsp;&nbsp;&nbsp;吗？费用如下</div>
@@ -171,13 +171,13 @@
 				     </div>
 				   </div>
 				   <div class="popup__btns">
-				     <button class="button popup__button " style="width: 93%;" @click="topay">我要购买，去付款</button>
-				     <button class="button-stroke popup__button js-popup-close" style="width: 93%;"  @click="cancel1">取消</button>
+				     <button class="button popup__button " style="width: 88%;" @click="topay">我要购买，去付款</button>
+				     <button class="button-stroke popup__button js-popup-close" style="width: 88%;"  @click="cancel1">取消</button>
 				   </div>
 				 </div>
 			  </el-dialog>
 			  
-			  <el-dialog  :visible.sync="paypage">
+			  <el-dialog class="dialog"   :visible.sync="paypage" center>
 				  <div class="popup__item" style="display: block;">
 				    <div class="popup__title h4">请支付......</div>
 				    <div class="steps">
@@ -192,15 +192,22 @@
 				          </div>
 				        </div>
 				      </div>
+					  <div class="steps__item">
+						  <el-image
+						        style="width: 100%"
+						        src="/static/img/content/pay.png"
+						        :fit="fit">
+						  </el-image>
+					  </div>
 				    </div>
 				    <div class="popup__btns">
-				      <button class="button popup__button" style="width: 93%;" @click="payok">支付完成</button>
-				      <button class="button-stroke popup__button js-popup-close" style="width: 93%;" @click="cancelpay">放弃支付</button>
+				      <button class="button popup__button" style="width: 88%;" @click="payok">支付完成</button>
+				      <button class="button-stroke popup__button js-popup-close" style="width: 88%;" @click="cancelpay">放弃支付</button>
 				    </div>
 				  </div>
 			  </el-dialog>
 			  
-			  <el-dialog  :visible.sync="buyok" >
+			  <el-dialog class="dialog"   :visible.sync="buyok" center>
 				  <div class="popup__item" style="display: block;">
 				    <div class="success">
 				      <div class="success__title h2">购买成功! <span role="img" aria-label="firework">🎉</span></div>
@@ -220,7 +227,7 @@
 						</div>
 				      </div>
 				      <div class="success__stage">向好友分享你新购买的数字藏品吧！</div>
-				      <button class="button popup__button" style="width: 93%;" @click="share">分享</button>
+				      <button class="button popup__button" style="width: 88%;" @click="share">分享</button>
 				    </div>
 				  </div>
 			  </el-dialog>
@@ -312,7 +319,6 @@
 				
 			},cancelpay(event){
 				this.paypage=false;
-				this.buyok=true;
 			}
 		},
 		onLoad: function (option) {
@@ -350,4 +356,10 @@
 
 <style>
 	@import url("/common/css/app.min.css");
+	.popup__item{
+	}
+	.dialog{
+		width: 70%;
+		margin: 0 auto;
+	}
 </style>

@@ -75,7 +75,7 @@
 		},
 		data() {
 			return {
-				art_src:"static/img/content/opensea.png",
+				art_src:"https://nft-1306406918.cos.ap-shanghai.myqcloud.com/0x0730f2299d5921d93d24b7b22526de51c62ef2ac/0",
 				follow_num:50,
 				art_id:""
 			};

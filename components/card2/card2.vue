@@ -87,4 +87,7 @@
 
 <style scoped>
 @import url("/common/css/app.min.css");
+.card{
+	width: 100px;
+}
 </style>

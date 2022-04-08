@@ -27,9 +27,9 @@
 						    </el-option>
 						  </el-select>
 		                <div class="catalog__nav">
-							<a class="catalog__link active" href="#">所有</a>
-							<a class="catalog__link" href="#">藏品</a>
-							<a class="catalog__link" href="#">盲盒</a>
+							<a class="catalog__link" :class="{active:all}" @click="show_all">所有</a>
+							<a class="catalog__link" :class="{active:simple}" @click="show_simple" >藏品</a>
+							<a class="catalog__link" :class="{active:blind}" @click="show_blind">盲盒</a>
 						</div>
 		              </div>
 		              <div class="catalog__row">
@@ -95,13 +95,15 @@
 		                        <option>Most liked</option>
 		                      </select> -->
 		                    </div>
-		                  </div><a class="catalog__reset" @click="getList()">
+		                  </div><a class="catalog__reset" @click="reload()">
 		                    重新筛选</a>
 		                </div>
 		                <div class="catalog__wrapper">
 		                  <div class="catalog__list">
 							  
-		                    <card1 v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address"></card1>							
+							<card1 class="card1" :hidden="!all" v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address"></card1>	
+		                    <card1-1 class="card1-1" :hidden="!blind" v-for="(item,index) in list_series" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address"></card1-1>							
+							
 							
 		                  </div>
 		                  <div class="catalog__btns">
@@ -123,6 +125,10 @@
 		data() {
 			return {
 				list:[],
+				list_series:[],
+				all:true,
+				simple:false,
+				blind:false,
 				
 				time_options: [{
                     value: '1',
@@ -183,7 +189,7 @@
 			formatTooltip(val) {
 			        return val / 100;
 			},
-			getList(event){
+			show_all(event){
 				var token = "";
 				uni.getStorage({
 					key: 'token',
@@ -206,6 +212,96 @@
 						this.list = res.data.data;
 				    }
 				});
+				
+				this.all = true;
+				this.simple = false;
+				this.blind = false;
+				
+			},
+			show_simple(event){
+				var token = "";
+				uni.getStorage({
+					key: 'token',
+					success: function (res) {
+						console.log(res.data);
+						token = res.data;
+						
+					}
+				});
+				uni.request({
+				    url: 'http://124.222.242.75:8080/allItem', //仅为示例，并非真实接口地址。
+				    data: {
+						
+				    },
+					method: 'POST',
+				    header: {
+						'content-type': 'application/x-www-form-urlencoded',
+						'token':token
+				    },
+				    success: (res) => {
+						this.list = res.data.data;
+				    }
+				});
+				
+				this.all = false;
+				this.simple = true;
+				this.blind = false;
+			},
+			show_blind(event){
+				var token = "";
+				uni.getStorage({
+					key: 'token',
+					success: function (res) {
+						console.log(res.data);
+						token = res.data;
+						
+					}
+				});
+				uni.request({
+				    url: 'http://124.222.242.75:8080/allItem', //仅为示例，并非真实接口地址。
+				    data: {
+				    },
+					method: 'POST',
+				    header: {
+						'content-type': 'application/x-www-form-urlencoded',
+						'token':token
+				    },
+				    success: (res) => {
+						this.list = res.data.data;
+				    }
+				});
+	
+				this.all = false;
+				this.simple = false;
+				this.blind = true;
+			},
+			reload(event){
+				var token = "";
+				uni.getStorage({
+					key: 'token',
+					success: function (res) {
+						console.log(res.data);
+						token = res.data;
+						
+					}
+				});
+				uni.request({
+				    url: 'http://124.222.242.75:8080/allItem', //仅为示例，并非真实接口地址。
+				    data: {
+				    },
+					method: 'POST',
+				    header: {
+						'content-type': 'application/x-www-form-urlencoded',
+						'token':token
+				    },
+				    success: (res) => {
+						this.list = res.data.data;
+				    }
+				});
+				
+				this.all = true;
+				this.simple = false;
+				this.blind = false;
 			}
 		},
 		mounted(){
@@ -231,6 +327,21 @@
 					this.list = res.data.data;
 			    }
 			});
+			uni.request({
+			    url: 'http://124.222.242.75:8080/collection', //仅为示例，并非真实接口地址。
+			    data: {
+					type:2
+			    },
+				method: 'POST',
+			    header: {
+					'content-type': 'application/x-www-form-urlencoded',
+					'token':token
+			    },
+			    success: (res) => {
+					this.list_series = res.data.data;
+					console.log(res.data);
+			    }
+			});
 		}
 	}
 </script>
@@ -250,4 +361,10 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 48px; }
+.card1{
+	width: 33%;
+}
+.card1-1{
+	width: 33%;
+}
 </style>

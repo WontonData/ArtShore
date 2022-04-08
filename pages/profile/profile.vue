@@ -85,17 +85,23 @@
 			                <div class="user__note">2022年2月1日 加入ArtShore</div>
 			              </div>
 			              <div class="profile__wrapper js-tabs">
-			                <div class="profile__nav"><a class="profile__link js-tabs-link" :class="{active:is_own_active}" href="#">我拥有的</a><a class="profile__link js-tabs-link" :class="{active:is_creat_active}">我创建的</a><a class="profile__link js-tabs-link" href="#">Created</a><a class="profile__link js-tabs-link" href="#">Likes</a><a class="profile__link js-tabs-link" href="#">Following</a><a class="profile__link js-tabs-link" href="#">Followers</a></div>
+			                <div class="profile__nav"><a class="profile__link js-tabs-link" :class="{active:is_own_active}" href="#">我拥有的</a>
+						                              <a class="profile__link js-tabs-link" :class="{active:is_creat_active}">我创建的</a>
+													  <a class="profile__link js-tabs-link" href="#">我喜欢的</a>
+													  <a class="profile__link js-tabs-link" href="#">我关注的</a>
+													  <a class="profile__link js-tabs-link" href="#">关注我的</a>
+							</div>
 			                <div class="profile__container">
 			                  <div class="profile__item js-tabs-item" style="display: block;">
 			                    <div class="profile__list">
 									
-			                      <br>
-								  <card2 v-for="(item,index) in list_have" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address"></card2>
-								  
+								  <div class="catalog myout">
+								  <card2 class="mycard" v-for="(item,index) in list_have" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address"></card2>
+								  </div>
+								
 			                    </div>
-			                    <div class="loader"></div>
 			                  </div>
+							  
 			                  <div class="profile__item js-tabs-item">
 			                    <div class="profile__list">
 									
@@ -105,78 +111,7 @@
 			                    </div>
 			                    <div class="loader"></div>
 			                  </div>
-			                  <div class="profile__item js-tabs-item">
-			                    <div class="profile__list">
-			                      
-								  <br>
-								  <card1></card1>
-								  
-			                    </div>
-			                    <div class="loader"></div>
-			                  </div>
-			                  <div class="profile__item js-tabs-item">
-			                    <div class="profile__list">
-			                      
-								  <br>
-								  <card1></card1>
-								  
-			                    </div>
-			                    <div class="loader"></div>
-			                  </div>
-			                  <div class="profile__item js-tabs-item">
-			                    <div class="followers">
-			                      <div class="followers__list">
-									  
-			                        <div class="followers__item">
-			                          <div class="followers__user">
-			                            <div class="followers__avatar"><img src="img/content/avatar-5.jpg" alt="Avatar"></div>
-			                            <div class="followers__details">
-			                              <div class="followers__name">Sally Fadel</div>
-			                              <div class="followers__counter">161 followers</div>
-			                              <button class="button-stroke button-small followers__button">Unfollow</button>
-			                            </div>
-			                          </div>
-			                          <div class="followers__wrap">
-			                            <div class="followers__gallery">
-			                              <div class="followers__preview"><img src="img/content/follower-pic-1.jpg" alt="Follower"></div>
-			                              <div class="followers__preview"><img src="img/content/follower-pic-2.jpg" alt="Follower"></div>
-			                              <div class="followers__preview"><img src="img/content/follower-pic-3.jpg" alt="Follower"></div>
-			                              <div class="followers__preview"><img src="img/content/follower-pic-4.jpg" alt="Follower"></div>
-			                            </div>
-			                          </div>
-			                        </div>
-			                        
-			                      </div>
-			                      <div class="loader"></div>
-			                    </div>
-			                  </div>
-			                  <div class="profile__item js-tabs-item">
-			                    <div class="followers">
-			                      <div class="followers__list">
-									  
-			                        <div class="followers__item">
-			                          <div class="followers__user">
-			                            <div class="followers__avatar"><img src="img/content/avatar-5.jpg" alt="Avatar"></div>
-			                            <div class="followers__details">
-			                              <div class="followers__name">Sally Fadel</div>
-			                              <div class="followers__counter">161 followers</div>
-			                              <button class="button-small followers__button">Follow</button>
-			                            </div>
-			                          </div>
-			                          <div class="followers__wrap">
-			                            <div class="followers__gallery">
-			                              <div class="followers__preview"><img src="img/content/follower-pic-1.jpg" alt="Follower"></div>
-			                              <div class="followers__preview"><img src="img/content/follower-pic-2.jpg" alt="Follower"></div>
-			                              <div class="followers__preview"><img src="img/content/follower-pic-3.jpg" alt="Follower"></div>
-			                              <div class="followers__preview"><img src="img/content/follower-pic-4.jpg" alt="Follower"></div>
-			                            </div>
-			                          </div>
-			                        </div>
-			                        
-			                      </div>
-			                      <div class="loader"></div>
-			                    </div>
-			                  </div>
+			
 			                </div>
 			              </div>
 			            </div>
@@ -243,4 +178,10 @@
 
 <style>
 @import url("/common/css/app.min.css");
+.mycard{
+	width: 33%;
+	float: left;
+	margin: 0 auto;
+}
+
 </style>

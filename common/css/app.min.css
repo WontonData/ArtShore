@@ -5724,21 +5724,21 @@ img {
 
 .profile .card {
   flex: 0 0 calc(33.333% - 32px);
-  width: calc(33.333% - 32px);
+  width: 90%;
   margin: 32px 16px 0; }
   @media only screen and (max-width: 1339px) {
     .profile .card {
       flex: 0 0 calc(33.333% - 20px);
-      width: calc(33.333% - 20px);
+     width: 90%;
       margin: 32px 10px 0; } }
   @media only screen and (max-width: 1179px) {
     .profile .card {
       flex: 0 0 calc(50% - 32px);
-      width: calc(50% - 32px);
+      width: 90%;
       margin: 32px 16px 0; } }
   @media only screen and (max-width: 767px) {
     .profile .card {
-      width: 100%;
+      width: 90%;
       margin: 0; }
       .profile .card:not(:last-child) {
         margin-bottom: 32px; } }
