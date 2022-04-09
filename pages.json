@@ -89,6 +89,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/item_blind/item_blind",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -7,13 +7,25 @@
 
 	 
 	  <view class="outer__inner">
+		  <div style="width: 100%;">
+			  <image style="width: 100%;height: 500px; background-color: #eeeeee;" mode="widthFix" src="/static/img/content/Blind-Box.png" @error="imageError">
+			  </image>	
+		  </div>
+		  <el-row >
+			  <el-col>|</el-col>
+		  </el-row>
 		  
-		  <div class="section-pt80 catalog myout">
+		  <el-row class="btn_center">
+			  <el-col :span="11">|</el-col>
+			  <el-col :span="3"><button class="button buy_blind_btn" @click="go_buy_blind">立即购买</button> </el-col>
+		  </el-row>
 		  
+		  <div class="catalog myout">
+			  
 		  
-		  					  
-		  <card1 class="mycard" v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address"></card1>							
-		  <card1 class="mycard" v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address"></card1>							
+		  			
+		  <card1-1-1 class="mycard" v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address"></card1-1-1>							
+		  <card1-1-1 class="mycard" v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address"></card1-1-1>							
 		  
 		  </div>
 		  
@@ -34,6 +46,12 @@
 			}
 		},
 		methods: {
+			go_buy_blind(event){
+				var itemurl =  '../../pages/item_blind/item_blind?address='+this.address;
+				uni.navigateTo({
+					url: itemurl
+				});
+			}
 			
 		},
 		onLoad: function (option) {
