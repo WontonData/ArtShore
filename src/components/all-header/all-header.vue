@@ -25,8 +25,19 @@ import { ref, unref } from 'vue'
         登录
       </div>
     </div>
-    <div v-else class="flex-1 flex justify-end">
-      <el-image class="menu-item h-8 min-w-[3rem] sm:min-w-[2rem] lg:min-w-[4rem]  max-w-[4.2rem]" :src="wallet_url" :fit="fit"></el-image>
+    <div v-else class="flex-1 flex justify-end">  
+      <div class="menu-item " @click="go_index">
+        热门
+      </div>
+      <div class="menu-item " @click="go_upload">
+        资源
+      </div>
+      <div class="menu-item " @click="go_search">
+        搜索
+      </div>
+       <div class="menu-item " @click="go_upload">
+        创作
+      </div>
       <el-image
         class="h-8 menu-item  min-w-[3rem] sm:min-w-[2rem] lg:min-w-[4rem] max-w-[4.2rem]"
         :src="my_url"
@@ -34,18 +45,7 @@ import { ref, unref } from 'vue'
         ref="login"
         @click="go_profile"
       ></el-image>
-      <div class="menu-item " @click="go_upload">
-        创作
-      </div>
-            <div class="menu-item " @click="go_search">
-        搜索
-      </div>
-            <div class="menu-item " @click="go_upload">
-        资源
-      </div>
-            <div class="menu-item " @click="go_index">
-        热门
-      </div>
+      <el-image class="menu-item h-8 min-w-[3rem] sm:min-w-[2rem] lg:min-w-[4rem]  max-w-[4.2rem]" :src="wallet_url" :fit="fit"></el-image>
     </div>
 		<!-- <el-popover
         ref="poplogin"

@@ -16,27 +16,7 @@
 	                    <div class="status-purple item__category">可购买</div>
 	                  </div><img :srcSet="art_src_2x" :src="art_src" alt="Item">
 	                </div>
-<!-- 	                <div class="options">
-	                  <div class="options__list">
-	                    <button class="button-circle-stroke options__button options__button_share js-options-share">
-	                      <svg class="icon icon-share">
-	                        <use xlink:href="#icon-share"></use>
-	                      </svg>
-	                    </button>
-	                    <button class="button-circle-stroke options__button options__button_favorite active">
-	                      <svg class="icon icon-heart">
-	                        <use xlink:href="#icon-heart"></use>
-	                      </svg>
-	                    </button>
-	                    <div class="actions js-actions">
-	                      <button class="button-circle-stroke actions__button js-actions-button">
-	                        <svg class="icon icon-more">
-	                          <use xlink:href="#icon-more"></use>
-	                        </svg>
-	                      </button>
-	                    </div>
-	                  </div>
-	                </div> -->
+					
 	              </div>
 	              <div class="item__details">
 	                <h1 class="item__title h3">{{title}} # {{tokenid}}</h1>
@@ -140,7 +120,7 @@
 	          </div>
 			  
 			  
-			  <el-dialog class="dialog" v-model="checkout" center>
+			  <el-dialog class="dialog"  v-model="checkout" center>
 				 <div class="popup__item" style="display: block;">
 				   <div class="popup__title h4">确认购买</div>
 				   <div class="popup__info">你确定要购买&nbsp;&nbsp;&nbsp; <strong> ZCC </strong> &nbsp;&nbsp;&nbsp;发行的 &nbsp;&nbsp;&nbsp;<strong> {{title}} </strong>&nbsp;&nbsp;&nbsp;吗？费用如下</div>
@@ -255,8 +235,8 @@
 			return {
 				address:"",
 				tokenid:"",
-				art_src : "https://nft-1306406918.cos.ap-shanghai.myqcloud.com/0x0730f2299d5921d93d24b7b22526de51c62ef2ac/0",
-				art_src_2x : "https://nft-1306406918.cos.ap-shanghai.myqcloud.com/0x0730f2299d5921d93d24b7b22526de51c62ef2ac/0 2x",
+				art_src : "/static/img/content/item-pic.jpg",
+				art_src_2x : "/static/img/content/item-pic@2x.jpg 2x",
 				title: "令人惊叹的艺术品",
 				price:"2.5",
 				info: "这张NFT卡可以让你使用特殊的空投。欲了解更多有关的信息，请访问",
@@ -323,7 +303,6 @@
 		},
 		onLoad: function (option) {
 				this.address = option.address;
-				this.tokenid = option.tokenid;
 		}
 		,mounted() {
 			var token = "";
@@ -336,8 +315,7 @@
 			uni.request({
 			    url: 'http://124.222.242.75:8080/nft/details', 
 			    data: {
-					nft_addr:this.address,
-					token_id:this.tokenid
+					nft_addr:this.address
 			    },
 				method: 'POST',
 			    header: {
@@ -347,8 +325,7 @@
 			    success: (res) => {
 					console.log(res.data);
 					this.title = res.data.data.name;
-					this.art_src=res.data.data.url;
-					this.art_src_2x=res.data.data.url;
+					
 			    }
 			});
 		}
