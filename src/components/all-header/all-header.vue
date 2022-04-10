@@ -97,10 +97,10 @@ export default {
       });
     },
     go_index(event) {
-      uni.redirectTo({
-        url: "../../pages/index/index",
-      });
-      // this.$router.push("/pages/index/index");
+      // uni.redirectTo({
+      //   url: "../../pages/index/index",
+      // });
+      this.$router.push("/pages/index/index");
     },
     go_profile(event) {
       if (this.is_login) {

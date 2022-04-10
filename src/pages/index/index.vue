@@ -5,7 +5,7 @@
 	    <all-header></all-header>
 	  </el-header>
 	<view class="outer__inner my_inner">
-		<image style="width: 100%; height: 100%; background-color: #eeeeee;" mode="widthFix" src="/static/img/content/index_bg.png" @error="imageError">
+		<image style="width: 100%; height: 100vh; background-color: #eeeeee;" mode="widthFix" src="/static/img/content/index_bg.png" @error="imageError">
 	    
 		
 		</image>
@@ -16,7 +16,7 @@
 			<a class="button-stroke main__button"  href="http://124.222.242.75:88/"> 即刻探索 </a>
 		</div>
 		
-		<image style="width: 100%; height: 100%; background-color: #eeeeee;" mode="widthFix" src="/static/img/content/index_bg_2.png" @error="imageError">
+		<image style="width: 100%; height: 100vh; background-color: #eeeeee;" mode="widthFix" src="/static/img/content/index_bg_2.png" @error="imageError">
 		</image>
 		<a class="button-stroke my_button"  href="http://124.222.242.75:88/"> 体验画廊 </a>
 		
@@ -49,12 +49,12 @@
 @import url("@/common/css/app.min.css");
 .main__head{
 	position: absolute;
-	transform: translate(170%,-320%);
+	transform: translate(55vw,-70vh);
 	z-index: 11;
 }
 .my_button{
 
-	transform: translate(600%,-300%);
+	transform: translate(58vw, -19vh);
 	z-index: 22;
 }
 
