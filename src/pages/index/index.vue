@@ -29,6 +29,7 @@
 	export default {
 		data() {
 			return {
+				imageError:false
 			}
 		},
 		methods: {
@@ -39,6 +40,7 @@
 			}
 		},
 		mounted(){
+			console.log("index")
 		}
 	}
 </script>

@@ -6,7 +6,9 @@ import { ref, unref } from 'vue'
 
 <template>
 
-  <div class="flex shadow-md">
+  <div class="flex shadow-md z-[100] relative w-full top-0 
+  backdrop-filter backdrop-blur-2xl backdrop-saturate-10
+           bg-white bg-opacity-70" >
 
     <!-- <div class="h-full p-10 align-middle"  id="test">
           <img class=" h-5 cover" :src="wallet_url"/>
@@ -79,7 +81,7 @@ export default {
       fits: ["none"],
       my_url: img_my,
       wallet_url: img_wallet,
-      logo: img_logo,
+      logo: 'https://nft-1306406918.cos.ap-shanghai.myqcloud.com/ArtShore%2FArtShore_Logo.png',
       is_login: false,
     };
   },
@@ -98,6 +100,7 @@ export default {
       uni.redirectTo({
         url: "../../pages/index/index",
       });
+      // this.$router.push("/pages/index/index");
     },
     go_profile(event) {
       if (this.is_login) {
