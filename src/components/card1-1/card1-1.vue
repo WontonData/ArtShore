@@ -12,7 +12,7 @@
 		  <a class="card__link">
 		    <div class="card__body">
 		      <div class="card__line"> 
-		        <div class="card__title">{{title}} # {{tokenid}}</div>
+		        <div class="card__title">{{title}}</div>
 		        <div class="card__price">{{price}} CNY</div>
 		      </div>
 		    </div> 
@@ -51,7 +51,10 @@
 			art_src:{
 				default: "",
 				required: true
-			},
+			},base_url:{
+				default: "",
+				required: true
+			}
 		},
 		data() {
 			return {
@@ -61,7 +64,7 @@
 		},
 		methods:{
 			go_item(event){
-				var itemurl =  '../../pages/series_item/series_item?address='+this.address;
+				var itemurl =  '../../pages/series_item/series_item?address='+this.address+'&base_url='+this.base_url;
 				uni.redirectTo({
                     url: itemurl,
                 });

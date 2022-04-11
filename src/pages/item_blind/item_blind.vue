@@ -19,7 +19,7 @@
 					
 	              </div>
 	              <div class="item__details">
-	                <h1 class="item__title h3">{{title}} # {{tokenid}}</h1>
+	                <h1 class="item__title h3">{{title}}</h1>
 	                <div class="item__cost">
 	                  <div class="status-stroke-green item__price">{{price}} CNY</div>
 	                  <div class="status-stroke-black item__price">标签2</div>
@@ -192,6 +192,11 @@
 				    <div class="success">
 				      <div class="success__title h2">购买成功! <span role="img" aria-label="firework">🎉</span></div>
 				      <div class="success__info">你已成功购买<span>{{creater}}</span>发行的数字藏品</div>
+					  <el-image
+				        style="width: 100%"
+				        :src="which_buy_url"
+				        :fit="fit">
+				      </el-image>
 				      <div class="success__table">
 				        <div class="success__row">
 				          <div class="success__col">状态</div>
@@ -234,13 +239,14 @@
 		data() {
 			return {
 				address:"",
-				tokenid:"",
 				art_src : "/static/img/content/item-pic.jpg",
 				art_src_2x : "/static/img/content/item-pic@2x.jpg 2x",
 				title: "令人惊叹的艺术品",
 				price:"2.5",
 				info: "这张NFT卡可以让你使用特殊的空投。欲了解更多有关的信息，请访问",
 				myurl:"https://go.zcc76.xyz",
+				base_url:"",
+				which_buy_url:"",
 				creater:'水王',
 				 checkout: false,
 				 paypage: false,
@@ -255,14 +261,13 @@
 				this.buyok = false;
 				this.shareDialogVisible = true;
 				this.share_url = "https://tenapi.cn/poster/?qrcode="+this.myurl
-				+"&title="+this.title
+				+"&title=我在ArtShore盲盒中购买了"+this.title
 				+"&content="+this.info
 				+"&site="+"ArtShore"
 				+"&info="+"数字艺术的黄金海岸"
 				+"&author="+this.creater
-				+"&pic=https://tenapi.cn/bing/";
+				+"&pic="+this.art_src;
 				console.log(this.share_url);
-				
 			},topay(event){
 				this.checkout=false;
 				this.paypage=true;
@@ -277,13 +282,10 @@
 						token = res.data;
 					}
 				});
-				console.log(this.address);
-				console.log(this.tokenid);
 				uni.request({
-				    url: 'http://124.222.242.75:8080/nft/buyItem', //仅为示例，并非真实接口地址。
+				    url: 'http://124.222.242.75:8080/nft/buyBlindBox', //仅为示例，并非真实接口地址。
 				    data: {
 						nft_addr:this.address,
-						token_id:this.tokenid
 				    },
 					method: 'POST',
 				    header: {
@@ -291,9 +293,13 @@
 						'token':token
 				    },
 				    success: (res) => {
-						console.log(res.data);
 						this.paypage=false;
 						this.buyok=true;
+						this.which_buy_url = this.base_url+res.data.data;
+						this.art_src = this.which_buy_url;
+						this.art_src_2x = this.which_buy_url;
+						this.share_url = this.which_buy_url;
+						console.log(this.which_buy_url);
 				    }
 				});
 				
@@ -302,7 +308,9 @@
 			}
 		},
 		onLoad: function (option) {
-				this.address = option.address;
+			this.address = option.address;
+			this.base_url = option.base_url;
+			console.log(this.base_url)
 		}
 		,mounted() {
 			var token = "";
@@ -313,9 +321,9 @@
 				}
 			});
 			uni.request({
-			    url: 'http://124.222.242.75:8080/nft/details', 
+			    url: 'http://124.222.242.75:8080/blind/meta', 
 			    data: {
-					nft_addr:this.address
+					nft_address:this.address
 			    },
 				method: 'POST',
 			    header: {

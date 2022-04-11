@@ -11,7 +11,7 @@
 		    <div class="card__body">
 		      <div class="card__line"> 
 		        <div class="card__title">{{title}} # {{tokenid}}</div>
-		        <div class="card__price">剩余99份</div>
+		        <div class="card__price">Available!</div>
 		      </div>
 		    </div>
 		  </a>

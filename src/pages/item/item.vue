@@ -280,12 +280,12 @@
 				this.buyok = false;
 				this.shareDialogVisible = true;
 				this.share_url = "https://tenapi.cn/poster/?qrcode="+this.myurl
-				+"&title="+this.title
+				+"&title=我向你赠送了"+this.title
 				+"&content="+this.info
 				+"&site="+"ArtShore"
 				+"&info="+"数字艺术的黄金海岸"
 				+"&author="+this.creater
-				+"&pic=https://tenapi.cn/bing/";
+				+"&pic="+this.art_src;
 				console.log(this.share_url);
 				
 			},topay(event){

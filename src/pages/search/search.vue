@@ -100,11 +100,8 @@
 		                </div>
 		                <div class="catalog__wrapper">
 		                  <div class="catalog__list">
-							  
 							<card1 class="card1" :hidden="!all" v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address" :art_src="item.url"></card1>	
-		                    <card1-1 class="card1-1" :hidden="!blind" v-for="(item,index) in list_series" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address" :art_src="item.url"></card1-1>							
-							
-							
+		                    <card1-1 class="card1-1" :hidden="!blind" v-for="(item,index) in list_series" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address" :art_src="item.coverUrl" :base_url="item.baseUrl"></card1-1>							
 		                  </div>
 		                  <div class="catalog__btns">
 		                    <button class="button-stroke catalog__button">Load more</button>
@@ -340,6 +337,7 @@
 			    },
 			    success: (res) => {
 					this.list_series = res.data.data;
+					console.log("111")
 					console.log(res.data);
 			    }
 			});

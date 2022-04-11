@@ -56,8 +56,14 @@
           />
         </div>
 
+         <div class=" flex felx-row justify-center gap-2">
+          <div class="flex align-middle items-center text-lg font-bold">
+            <div>品牌方登录:</div>
+          </div>
+          <el-switch v-model="value1" />
+        </div>
 
-        <div class="btn-group flex felx-row mt-8">
+        <div class="btn-group flex felx-row mt-8 mt-3">
           <button
             class="btn bg-yellow-400 leading-6 hover:bg-yellow-600"
             @click="onSubmit('loginForm')"
@@ -93,6 +99,7 @@
 <script>
 // import axios from 'axios'
 //import {checkLogin} from '../network/login'
+
 export default {
   name: "Login",
   data() {
@@ -115,6 +122,7 @@ export default {
       },
       //对话框显示和隐藏
       dialogVisible: false,
+      value1:"false"
     };
   },
   methods: {
