@@ -3,8 +3,8 @@ uni.addInterceptor("request", {
   invoke(args) {
     // request 触发前拼接 url
     if (args.url.indexOf("://") < 0) {
-      args.url = "http://124.222.242.75:8080/" + args.url;
-      // args.url = "http://127.0.0.1:8080/" + args.url;
+      // args.url = "http://124.222.242.75:8080/" + args.url;
+      args.url = "http://127.0.0.1:8080/" + args.url;
     }
     const token = uni.getStorageSync("token");
     args.header.token = token;
@@ -25,9 +25,9 @@ uni.addInterceptor("request", {
 });
 export default {
   onLaunch: function () {
-    console.warn(
-      "当前组件仅支持 uni_modules 目录结构 ，请升级 HBuilderX 到 3.1.0 版本以上！"
-    );
+    // console.warn(
+    //   "当前组件仅支持 uni_modules 目录结构 ，请升级 HBuilderX 到 3.1.0 版本以上！"
+    // );
     console.log("App Launch");
   },
   onShow: function () {

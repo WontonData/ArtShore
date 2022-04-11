@@ -57,7 +57,7 @@
                 </div>
                 <a
                   class="button-stroke variants__button"
-                  href="upload-details.html"
+                  href="/#/pages/upload/CreateBlindBox"
                   >创建盲盒</a
                 >
               </div>

@@ -73,6 +73,13 @@
             }
         },
         {
+            "path": "pages/upload/CreateBlindBox",
+            "style": {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
             "path": "pages/series_item/series_item",
             "style": {
                 "navigationBarTitleText": "",

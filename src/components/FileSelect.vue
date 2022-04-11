@@ -1,6 +1,6 @@
 <!--
  * @Author: OOO--li--OOO
- * @LastEditTime: 2022-04-10 21:48:11
+ * @LastEditTime: 2022-04-11 14:23:58
 -->
 <script setup>
 import { ref, defineEmits, reactive, watch, getCurrentInstance  } from 'vue'
@@ -28,23 +28,50 @@ function selectFile() {
   let input = document.createElement('input');
   input.value = '选择文件';
   input.type = 'file';
+  input.setAttribute("multiple","true")
   // console.log(e.emit)
-  input.onchange = event => {
-      let file = event.target.files[0];
-      let file_reader = new FileReader();
+  input.onchange = async (event) => {
+      console.log(event.target)
+      let evt = event.target
+      let len = evt.files.length
+      for (let i = 0; i < len; i++) {
+        e.emit("selected", evt.files.length)
+        await new Promise((resolve, reject)=>{
+          setTimeout(()=>{
+            resolve()
+          }, 40)
+        })
+      }
+      for (let i = 0; i < len; i++) {
+        let file = evt.files[i];
+        let file_reader = new FileReader();
 
+        
+        file_reader.onload = () => {
+            let fc = file_reader.result;
+            file.fc = fc
+            file.i = i
+            e.emit("readed",file)
+            // resolve(file); // 返回文件文本内容到Promise
+        };
+        await new Promise((resolve, reject)=>{
+          setTimeout(()=>{
+            
+            file_reader.readAsDataURL(file)
+            resolve()
+          }, 100)
+        })
+        // await (function(){
+        //     return new Promise(function(res, rej){
+        //         setTimeout(function(){
+        //             res();
+        //         },200)
+        //     })
+        // }())
+        console.log("res")
+         
+      }
       
-
-      file_reader.onload = () => {
-          let fc = file_reader.result;
-          file.fc = fc
-          e.emit("readed",file)
-          // file.i = i
-          // resolve(file); // 返回文件文本内容到Promise
-      };
-      
-      e.emit("selected")
-      file_reader.readAsDataURL(file)
   };
   input.click();
   return e
@@ -72,18 +99,23 @@ function selectFile() {
 }
 async function onClick(){
   
-  let i = props.files.length-1
-  selectFile().on("selected",()=>{
-    // console.log("selected")
+  let startIndex = props.files.length
+  selectFile().on("selected",(_len)=>{
+    setTimeout(() => {
+     // console.log("selected")
       let nftFile = new NftFile()
       props.files.push(nftFile);
-      i = props.files.length-1
+    }, 1);
   }).on("readed",(file)=>{
-    // console.log("readed",props.files[i],file)
-    props.files[i].name = file.name
-    props.files[i].type = file.type
-    props.files[i].dataURL = file.fc
-    props.files[i].load = true
+    setTimeout(() => {
+        // console.log("readed",file)
+        let i = startIndex+file.i
+        props.files[i].name = file.name
+        props.files[i].type = file.type
+        props.files[i].dataURL = file.fc
+        props.files[i].load = true
+    }, 2);
+
   })
   // selectFile().then((file) => {
   //   // console.log(file)

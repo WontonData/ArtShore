@@ -1,6 +1,6 @@
 <!--
  * @Author: OOO--li--OOO
- * @LastEditTime: 2022-04-10 19:27:06
+ * @LastEditTime: 2022-04-11 15:05:02
 -->
 <script setup>
 import { ref, toRef, defineEmits, reactive  } from 'vue'
@@ -63,16 +63,16 @@ async function onClick(){
 </script>
 
 <template>
-  <div class="border-4 box-content w-full rounded-md">
+  <div class="border-4 box-border w-full rounded-md">
     <!-- <div class="container box-content bg-gray-100 min-h-[4rem] max-h-full w-6/6 flex flex-row flex-wrap "> -->
-      <div class="border-dashed border-4 border-gray-500 bg-gray-100 bg-opacity-50  w-40 h-40 flex flex-col-reverse rounded-xl text-center"  v-loading="loading">
-        <img v-if="hasSelected" :src="theFile.fc" class=" absolute w-40 h-40 object-scale-down z-0 rounded-xl"  @click="onClick"/>
+      <div class="border-dashed box-border border-4 border-gray-500 bg-gray-100 bg-opacity-50  w-full h-40 flex flex-col-reverse rounded-xl text-center"  v-loading="loading">
+        <img v-if="hasSelected" :src="theFile.fc" class=" w-full h-40 object-scale-down z-0 rounded-xl"  @click="onClick"/>
         <!-- <div class="z-10">{{file.Count}}</div> -->
         
         <!-- <input type="text" class=" items-center text-center z-10  rounded-md opacity-80 bg-indigo-200 overflow-hidden font-bold p-0" v-model="file.count"> -->
 
       </div>
-      <div class="btn w-[10.5rem] pl-0 pr-0" @click="onClick">
+      <div class="btn w-full pl-0 pr-0" @click="onClick">
           选择
       </div>
 
