@@ -85,8 +85,8 @@
 			                <div class="user__note">2022年2月1日 加入ArtShore</div>
 			              </div>
 			              <div class="profile__wrapper js-tabs">
-			                <div class="profile__nav"><a class="profile__link js-tabs-link" :class="{active:is_own_active}" href="#">我拥有的</a>
-						                              <a class="profile__link js-tabs-link" :class="{active:is_creat_active}">我创建的</a>
+			                <div class="profile__nav"><a class="profile__link js-tabs-link" :class="{active:is_own_active}" @click="show_owm">我拥有的</a>
+						                              <a class="profile__link js-tabs-link" :class="{active:is_creat_active}" @click="show_creat">我创建的</a>
 													  <a class="profile__link js-tabs-link" href="#">我喜欢的</a>
 													  <a class="profile__link js-tabs-link" href="#">我关注的</a>
 													  <a class="profile__link js-tabs-link" href="#">关注我的</a>
@@ -96,7 +96,8 @@
 			                    <div class="profile__list">
 									
 								  <div class="catalog myout">
-								  <card2 class="mycard" v-for="(item,index) in list_have" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address" :art_src="item.url"></card2>
+								  <card2 class="mycard" :hidden="!is_own_active" v-for="(item,index) in list_have" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address" :art_src="item.url"></card2>
+								  <card2 class="mycard" :hidden="!is_creat_active" v-for="(item,index) in list_creat" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address" :art_src="item.url"></card2>
 								  </div>
 								
 			                    </div>
@@ -134,7 +135,7 @@
 				intro:"A wholesome farm owner in Montana. Upcoming gallery solo show in Germany",
 				
 				is_own_active:true,
-				is_creat_avtive:false
+				is_creat_active:false
 			}
 		},
 		methods: {
@@ -148,6 +149,14 @@
 				uni.redirectTo({
 					url: '../../pages/index/index'
 				});
+			},
+			show_owm(event){
+				this.is_own_active=true;
+				this.is_creat_active=false;
+			},
+			show_creat(event){
+				this.is_own_active=false;
+				this.is_creat_active=true;
 			}
 		},mounted() {
 			var token = "";
@@ -159,7 +168,20 @@
 				}
 			});
 			uni.request({
-			    url: 'http://124.222.242.75:8080/profile/own', //仅为示例，并非真实接口地址。
+			    url: 'http://124.222.242.75:8080/profile/own', 
+			    data: {
+			    },
+				method: 'POST',
+			    header: {
+					'content-type': 'application/x-www-form-urlencoded',
+					'token':token
+			    },
+			    success: (res) => {
+					this.list_have = res.data.data;
+			    }
+			});
+			uni.request({
+			    url: 'http://124.222.242.75:8080/profile/create', 
 			    data: {
 			    },
 				method: 'POST',
@@ -169,7 +191,7 @@
 			    },
 			    success: (res) => {
 					console.log(res.data);
-					this.list_have = res.data.data;
+					this.list_creat = res.data.data;
 			    }
 			});
 		}

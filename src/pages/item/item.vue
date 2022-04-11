@@ -212,6 +212,11 @@
 				    <div class="success">
 				      <div class="success__title h2">购买成功! <span role="img" aria-label="firework">🎉</span></div>
 				      <div class="success__info">你已成功购买<span>{{creater}}</span>发行的数字藏品</div>
+					  <el-image
+				        style="width: 100%"
+				        :src="art_src"
+				        :fit="fit">
+				      </el-image>
 				      <div class="success__table">
 				        <div class="success__row">
 				          <div class="success__col">状态</div>
