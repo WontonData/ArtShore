@@ -120,7 +120,7 @@
 	          </div>
 			  
 			  
-			  <el-dialog class="dialog"  v-model="checkout" center>
+			  <el-dialog class="dialog" width="36%" v-model="checkout" center>
 				 <div class="popup__item" style="display: block;">
 				   <div class="popup__title h4">确认购买</div>
 				   <div class="popup__info">你确定要购买&nbsp;&nbsp;&nbsp; <strong> ZCC </strong> &nbsp;&nbsp;&nbsp;发行的 &nbsp;&nbsp;&nbsp;<strong> {{title}} </strong>&nbsp;&nbsp;&nbsp;吗？费用如下</div>
@@ -157,7 +157,7 @@
 				 </div>
 			  </el-dialog>
 			  
-			  <el-dialog class="dialog"   v-model="paypage" center>
+			  <el-dialog class="dialog" width="36%"  v-model="paypage" center>
 				  <div class="popup__item" style="display: block;">
 				    <div class="popup__title h4">请支付......</div>
 				    <div class="steps">
@@ -187,7 +187,7 @@
 				  </div>
 			  </el-dialog>
 			  
-			  <el-dialog class="dialog"   v-model="buyok" center>
+			  <el-dialog class="dialog" width="36%"  v-model="buyok" center>
 				  <div class="popup__item" style="display: block;">
 				    <div class="success">
 				      <div class="success__title h2">购买成功! <span role="img" aria-label="firework">🎉</span></div>

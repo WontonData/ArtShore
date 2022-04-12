@@ -1,5 +1,10 @@
 <template>
-  <view>
+  <view class="body">
+    <view class="outer">
+      <!-- <el-header> -->
+        <all-header></all-header>
+      <!-- </el-header> -->
+      <view class="outer__inner">
     <div
       :style="{
         backgroundImage:
@@ -19,7 +24,7 @@
     <div class="flex align-middle justify-items-center w-full justify-center text-xl">
       <!-- <div>123</div> -->
       <el-form
-        ref="loginForm"
+        ref="registerForm"
         :model="form"
         :rules="rules"
         label-width="80px"
@@ -46,12 +51,34 @@
         </div>
         <div class=" flex felx-row justify-center gap-2 mt-3">
           <div class="flex align-middle items-center text-lg font-bold">
+            <div>邮箱:</div>
+          </div>
+          <input
+            type="text"
+            class=""
+            placeholder="请输入邮箱"
+            v-model="form.username"
+          />
+        </div>
+        <div class=" flex felx-row justify-center gap-2 mt-3">
+          <div class="flex align-middle items-center text-lg font-bold">
             <div>密码:</div>
           </div>
           <input
             type="text"
             class=""
             placeholder="请输入密码"
+            v-model="form.password"
+          />
+        </div>
+        <div class=" flex felx-row justify-center gap-2 mt-3">
+          <div class="flex align-middle items-center text-lg font-bold">
+            <div>身份证号:</div>
+          </div>
+          <input
+            type="text"
+            class=""
+            placeholder="请输入身份证号"
             v-model="form.password"
           />
         </div>
@@ -78,18 +105,48 @@
           />
         </div>
 
+        <div class=" flex felx-row justify-center gap-2 mt-3">
+          <div class="flex align-middle items-center text-lg font-bold">
+            <div>性别:</div>
+          </div>
+          <el-select v-model="value" class="m-2" placeholder="Select">
+            <el-option key="1" label="男" value="1"/>
+            <el-option key="2" label="女" value="2"/>
+            <el-option key="3" label="保密" value="3"/>
+          </el-select>
+        </div>
+
+        <div class=" flex felx-row justify-center gap-2 mt-3">
+          <div class="flex align-middle items-center text-lg font-bold">
+            <div>年龄:</div>
+          </div>
+          <el-input-number v-model="age" :min="1" :max="120" @change="handleChange"/>
+        </div>
+
+        <div class=" flex felx-row justify-center gap-2 mt-3">
+          <div class="flex align-middle items-center text-lg font-bold">
+            <div>职业:</div>
+          </div>
+          <el-select v-model="value" class="m-2" placeholder="Select">
+            <el-option key="1" label="设计工作者" value="1"/>
+            <el-option key="2" label="IT工作者" value="2"/>
+            <el-option key="3" label="其他" value="3"/>
+            <el-option key="4" label="保密" value="4"/>
+          </el-select>
+        </div>
+
 
         <div class="btn-group flex felx-row mt-8 mt-3">
           <button
             class="btn bg-yellow-400 leading-6 hover:bg-yellow-600"
-            @click="onSubmit('loginForm')"
+            @click="onRegisterSubmit('registerForm')"
           >
-            返回登录
+            提交注册
           </button>
           <!-- <el-button type="primary" @click="onSubmit('loginForm')"
             >登录</el-button
           > -->
-          <button class="btn leading-6" @click="goRegister">注册</button>
+          <button class="btn leading-6" @click="goLogin">返回登录</button>
           <!-- <el-button @click="goRegister">注册</el-button> -->
         </div>
       </el-form>
@@ -110,11 +167,11 @@
       </el-dialog>
     </div>
   </view>
+  </view>
+  </view>
 </template>
 
 <script>
-// import axios from 'axios'
-//import {checkLogin} from '../network/login'
 
 export default {
   name: "Login",
@@ -125,6 +182,8 @@ export default {
         username: "",
         password: "",
         role: "1",
+        sex:1,
+        age:0,
       },
       //表单验证，需要再el-form-item 元素中增加prop属性
       rules: {
@@ -174,8 +233,8 @@ export default {
         },
       });
     },
-    goRegister() {
-      this.$router.push("/pages/register/register");
+    goLogin() {
+      this.$router.push("/pages/login/login");
     },
   },
   onLoad() {

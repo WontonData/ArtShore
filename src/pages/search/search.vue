@@ -9,23 +9,16 @@
 		  <div class="section-pt80 catalog">
 		            <div class="catalog__center center">
 		              <div class="catalog__top">
-		                <div class="catalog__title">输入你感兴趣的内容吧</div>
+		                <div class="catalog__title">在艺术海岸寻找数字艺术品吧</div>
 		                <form class="catalog__search">
-		                  <input class="catalog__input ex_catalog__input" type="text" name="search" placeholder="Search..." required>
+		                  <input class="catalog__input ex_catalog__input" type="text" name="search" placeholder="搜索..." required>
 		                  <button class="catalog__result">
 							<img class="icon icon-search" src="../../static/icon/icon_ser.png"/>
 		                  </button>
 		                </form>
 		              </div>
 		              <div class="catalog__sorting">
-						<el-select class="myselect" v-model="select_time_val" placeholder="请选择">
-						    <el-option
-						      v-for="item in time_options"
-						      :key="item.value"
-						      :label="item.label"
-						      :value="item.value">
-						    </el-option>
-						  </el-select>
+					    <view  class="myselect" ></view>
 		                <div class="catalog__nav">
 							<a class="catalog__link" :class="{active:all}" @click="show_all">所有</a>
 							<a class="catalog__link" :class="{active:simple}" @click="show_simple" >藏品</a>

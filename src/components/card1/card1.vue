@@ -18,7 +18,7 @@
 				<img class="icon icon-scatter-up" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M13.334 12.667a.667.667 0 1 1 0 1.334.667.667 0 0 1 0-1.334zm-5.333 0A.667.667 0 1 1 8 12.666zm-5.333 0a.667.667 0 1 1-.001 0zM13.334 10a.667.667 0 1 1 0 1.334.667.667 0 0 1 0-1.334zM8 10a.667.667 0 1 1 0 1.334A.667.667 0 0 1 8 10zM2.667 7.333a2 2 0 0 1 0 4 2 2 0 0 1-2-2 2 2 0 0 1 2-2zm0 1.333a.667.667 0 1 0 0 1.334.667.667 0 0 0 0-1.334zm10.667-1.333a.667.667 0 1 1 0 1.334.667.667 0 0 1 0-1.334zM8 4.667a2 2 0 1 1 0 4 2 2 0 1 1 0-4zM8 6a.667.667 0 1 0 0 1.334A.667.667 0 0 0 8 6zm5.333-4a2 2 0 1 1 0 4 2 2 0 1 1 0-4zm0 1.333a.667.667 0 1 0 0 1.334.667.667 0 0 0 0-1.334z'/%3E%3C/svg%3E"/>
 			  </a>
 		    </div>
-		  </div><a class="card__link" href="item.html">
+		  </div><a class="card__link">
 		    <div class="card__body">
 		      <div class="card__line"> 
 		        <div class="card__title">{{title}} # {{tokenid}}</div>
@@ -30,12 +30,15 @@
 		          <div class="card__avatar"><img src="../../static/img/content/avatar-3.jpg" alt="Avatar"/></div>
 		          <div class="card__avatar"><img src="../../static/img/content/avatar-4.jpg" alt="Avatar"/></div>
 		        </div>
-		        <div class="card__counter">当前{{follow_num}}人关注</div>
+				
+				<div class="card__avatar" @click="like=!like"><img src="../../static/icon/like_be.png" alt="Avatar" v-show="!like"/> 
+				                          <img src="../../static/icon/like_af.png" alt="Avatar" v-show="like"/></div>
+		        <!--<div class="card__counter"> {{follow_num}}</div>-->
 		      </div>
 		    </div> 
 		    <div class="card__foot">
 		      <div class="card__status">
-		        创作者： <span>{{creater}}</span>
+		        创作者： <span>{{creater}}...</span>
 		      </div>
 		      <div class="card__bid">状态：<span role="img" aria-label="fire">🔥</span></div>
 		    </div></a>
@@ -78,7 +81,9 @@
 		data() {
 			return {
 				follow_num:50,
-				art_id:""
+				art_id:"",
+
+				like:false,
 			};
 		},
 		methods:{

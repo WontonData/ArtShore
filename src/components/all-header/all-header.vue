@@ -32,7 +32,7 @@ import { ref, unref } from 'vue'
         热门
       </div>
       <div class="menu-item " @click="go_search">
-        搜索
+        发现
       </div>
        <div class="menu-item " @click="go_upload">
         创作

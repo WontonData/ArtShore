@@ -1,5 +1,10 @@
 <template>
-  <view>
+  <view class="body">
+    <view class="outer">
+      <!-- <el-header> -->
+        <all-header></all-header>
+      <!-- </el-header> -->
+      <view class="outer__inner">
     <div
       :style="{
         backgroundImage:
@@ -93,6 +98,8 @@
         </span>
       </el-dialog>
     </div>
+  </view>
+  </view>
   </view>
 </template>
 
