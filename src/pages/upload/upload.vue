@@ -14,6 +14,8 @@
                 <span>“创建普通NFT”</span>
                 如果你的NFT是一个系列或合集，请选择<span>“创建主题NFT”</span>
                 如果你想创建NFT盲盒，请选择<span>“创建NFT盲盒”</span>
+                <br>
+                <span><a href="/#/pages/checkNft/checkNft">检查工具</a></span>
               </div>
             </div>
             <div class="variants__list">

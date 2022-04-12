@@ -81,7 +81,6 @@
 		data() {
 			return {
 				follow_num:50,
-				art_id:"",
 
 				like:false,
 			};
