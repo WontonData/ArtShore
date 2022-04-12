@@ -42,4 +42,4 @@ jobs:
       with:
         ACCESS_TOKEN: ${{ secrets.ACTION_ACCESS }}
         BRANCH: gh-pages
-        FOLDER: dist
+        FOLDER: dist/h5
