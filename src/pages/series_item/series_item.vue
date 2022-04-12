@@ -17,18 +17,126 @@
 		  
 		  <el-row class="btn_center">
 			  <el-col :span="11">|</el-col>
-			  <el-col :span="3"><button class="button buy_blind_btn" @click="go_buy_blind">立即购买</button> </el-col>
+			  <el-col :span="3"><button class="button buy_blind_btn" @click="checkout = true">立即购买</button> </el-col>
 		  </el-row>
 		  
 		  <div class="catalog myout">
 			  
 		  
 		  			
-		  <card1-1-1 class="mycard" v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address" :art_src="item.url"></card1-1-1>							
-		  <card1-1-1 class="mycard" v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx" :tokenid="item.tokenId" :art_id="item.id" :address="item.address" :art_src="item.url"></card1-1-1>							
-		  
+		  <card1-1-1 class="mycard" v-for="(item,index) in list" 
+		  :title="item.name" price="9.98" creater="xxx" 
+		  :tokenid="item.tokenId" :art_id="item.id" 
+		  :address="item.address" :art_src="item.url" 
+		  :sellout="(item.creator!=item.owner)&(item.creator!=null)"></card1-1-1>						
 		  </div>
 		  
+
+
+		  		<el-dialog class="dialog"  v-model="checkout" center>
+				 <div class="popup__item" style="display: block;">
+				   <div class="popup__title h4">确认购买</div>
+				   <div class="popup__info">你确定要购买此NFT盲盒吗？费用如下</div>
+				   <div class="popup__table">
+				     <div class="popup__row">
+				       <div class="popup__col">9.98</div>
+				       <div class="popup__col">CNY</div>
+				     </div>
+				     <div class="popup__row">
+				       <div class="popup__col">你的余额</div>
+				       <div class="popup__col">0.0 CNY</div>
+				     </div>
+
+				     <div class="popup__row">
+				       <div class="popup__col">你将支付</div>
+				       <div class="popup__col">9.98 CNY</div>
+				     </div>
+				   </div>
+				   <div class="popup__attention">
+				     <div class="popup__preview">
+				       <svg class="icon icon-info-circle">
+				         <use xlink:href="#icon-info-circle"></use>
+				       </svg>
+				     </div>
+				     <div class="popup__details">
+				       <div class="popup__category">数字藏品仅供收藏，请勿向他人售卖</div>
+				       <div class="popup__text"></div>
+				     </div>
+				   </div>
+				   <div class="popup__btns">
+				     <button class="button popup__button " style="width: 88%;" @click="topay">我要购买，去付款</button>
+				     <button class="button-stroke popup__button js-popup-close" style="width: 88%;"  @click="cancel1">取消</button>
+				   </div>
+				 </div>
+			  </el-dialog>
+			  
+			  <el-dialog class="dialog"   v-model="paypage" center>
+				  <div class="popup__item" style="display: block;">
+				    <div class="popup__title h4">请支付......</div>
+				    <div class="steps">
+				      <div class="steps__item">
+				        <div class="steps__head">
+				          <div class="steps__icon">
+				            <div class="loader-circle"></div>
+				          </div>
+				          <div class="steps__details">
+				            <div class="steps__info">正在支付</div>
+				            <div class="steps__text">请在支付宝中支付相应的金额</div>
+				          </div>
+				        </div>
+				      </div>
+					  <div class="steps__item">
+						  <el-image
+						        style="width: 100%"
+						        src="/static/img/content/pay.png"
+						        :fit="fit">
+						  </el-image>
+					  </div>
+				    </div>
+				    <div class="popup__btns">
+				      <button class="button popup__button" style="width: 88%;" @click="payok">支付完成</button>
+				      <button class="button-stroke popup__button js-popup-close" style="width: 88%;" @click="cancelpay">放弃支付</button>
+				    </div>
+				  </div>
+			  </el-dialog>
+			  
+			  <el-dialog class="dialog"   v-model="buyok" center>
+				  <div class="popup__item" style="display: block;">
+				    <div class="success">
+				      <div class="success__title h2">购买成功! <span role="img" aria-label="firework">🎉</span></div>
+				      <div class="success__info">你已成功购买<span>{{creater}}</span>发行的数字藏品</div>
+					  <el-image
+				        style="width: 100%"
+				        :src="which_buy_url"
+				        :fit="fit">
+				      </el-image>
+				      <div class="success__table">
+				        <div class="success__row">
+				          <div class="success__col">状态</div>
+				          <div class="success__col">已购买</div>
+				        </div>
+						<div class="success__row">
+						  <div class="success__col">藏品唯一id</div>
+						  <div class="success__col">0msx836930...87r398</div>
+						</div>
+						<div class="success__row">
+						  <div class="success__col">所属人</div>
+						  <div class="success__col">username</div>
+						</div>
+				      </div>
+				      <div class="success__stage">向好友分享你新购买的数字藏品吧！</div>
+				      <button class="button popup__button" style="width: 88%;" @click="share">分享</button>
+				    </div>
+				  </div>
+			  </el-dialog>
+			  
+			  <el-dialog v-model="shareDialogVisible" width="32%" center>
+				  <el-image
+				        style="width: 100%"
+				        :src="share_url"
+				        :fit="fit">
+				  </el-image>
+			  </el-dialog>
 		  
 		  
 		  
@@ -44,7 +152,21 @@
 				address:"",
 				base_url:"",
 				head_url:"/static/img/content/Blind-Box.png",
-				list:[]
+				list:[],
+
+				creater:"XXX",
+				myurl:"",
+				info:"info",
+
+				base_url:"",
+				which_buy_url:"",
+
+				 checkout: false,
+				 paypage: false,
+				 buyok: false,
+				 shareDialogVisible:false,
+				 share_url : "",
+				 fit : "contain"
 			}
 		},
 		methods: {
@@ -53,6 +175,55 @@
 				uni.navigateTo({
 					url: itemurl
 				});
+			},
+			share(event){
+				this.buyok = false;
+				this.shareDialogVisible = true;
+				this.share_url = "https://tenapi.cn/poster/?qrcode="+this.myurl
+				+"&title=我在ArtShore购买了盲盒"
+				+"&content="+this.info
+				+"&site="+"ArtShore"
+				+"&info="+"数字艺术的黄金海岸"
+				+"&author="+this.creater
+				+"&pic="+this.which_buy_url;
+				console.log(this.share_url);
+			},topay(event){
+				this.checkout=false;
+				this.paypage=true;
+			},cancel1(event){
+				this.checkout=false;
+			},payok(event){
+				var token = "";
+				uni.getStorage({
+					key: 'token',
+					success: function (res) {
+						console.log(res.data);
+						token = res.data;
+					}
+				});
+				uni.request({
+				    url: 'http://124.222.242.75:8080/nft/buyBlindBox', 
+				    data: {
+						nft_addr:this.address,
+				    },
+					method: 'POST',
+				    header: {
+						'content-type': 'application/x-www-form-urlencoded',
+						'token':token
+				    },
+				    success: (res) => {
+						this.paypage=false;
+						this.buyok=true;
+						this.which_buy_url = this.base_url+res.data.data;
+						this.art_src = this.which_buy_url;
+						this.art_src_2x = this.which_buy_url;
+						this.share_url = this.which_buy_url;
+						console.log(this.which_buy_url);
+				    }
+				});
+				
+			},cancelpay(event){
+				this.paypage=false;
 			}
 		},
 		onLoad: function (option) {
@@ -80,6 +251,7 @@
 			    },
 			    success: (res) => {
 					this.list = res.data.data;
+					console.log(res.data)
 			    }
 			});
 			

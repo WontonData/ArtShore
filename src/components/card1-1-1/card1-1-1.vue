@@ -11,7 +11,8 @@
 		    <div class="card__body">
 		      <div class="card__line"> 
 		        <div class="card__title">{{title}} # {{tokenid}}</div>
-		        <div class="card__price">Available!</div>
+		        <div class="card__price" v-show="!sellout">未售出!</div>
+				<div class="card__price card__price_red" v-show="sellout">已售出!</div>
 		      </div>
 		    </div>
 		  </a>
@@ -51,6 +52,10 @@
 				default: "",
 				required: true
 			},
+			sellout:{
+				default: false,
+				required: true
+			},
 		},
 		data() {
 			return {
@@ -59,10 +64,17 @@
 			};
 		},
 		methods:{
+		},
+		mounted(){
+			console.log(this.sellout);
 		}
 	}
 </script>
 
 <style scoped>
 @import url("../../common/css/app.min.css");
+.card__price_red{
+	color:red;
+	box-shadow: inset 0 0 0 2px red;
+}
 </style>

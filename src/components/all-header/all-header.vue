@@ -31,14 +31,14 @@ import { ref, unref } from 'vue'
       <div class="menu-item " @click="go_index">
         热门
       </div>
-      <div class="menu-item " @click="go_upload">
-        资源
-      </div>
       <div class="menu-item " @click="go_search">
         搜索
       </div>
        <div class="menu-item " @click="go_upload">
         创作
+      </div>
+      <div class="menu-item " @click="go_task">
+        创作激励
       </div>
       <el-image
         class="h-8 menu-item  min-w-[3rem] sm:min-w-[2rem] lg:min-w-[4rem] max-w-[4.2rem]"
@@ -86,6 +86,11 @@ export default {
     };
   },
   methods: {
+    go_task(event) {
+      uni.redirectTo({
+        url: "../../pages/task/task",
+      });
+    },
     go_upload(event) {
       uni.redirectTo({
         url: "../../pages/upload/upload",

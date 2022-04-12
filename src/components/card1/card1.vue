@@ -35,9 +35,7 @@
 		    </div> 
 		    <div class="card__foot">
 		      <div class="card__status">
-		        <svg class="icon icon-candlesticks-up">
-		          <use xlink:href="#icon-candlesticks-up"></use>
-		        </svg>创作者： <span>{{creater}}</span>
+		        创作者： <span>{{creater}}</span>
 		      </div>
 		      <div class="card__bid">状态：<span role="img" aria-label="fire">🔥</span></div>
 		    </div></a>

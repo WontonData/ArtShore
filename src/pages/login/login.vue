@@ -56,9 +56,9 @@
           />
         </div>
 
-         <div class=" flex felx-row justify-center gap-2">
+        <div class=" flex felx-row justify-left gap-2 mt-3">
           <div class="flex align-middle items-center text-lg font-bold">
-            <div>品牌方登录:</div>
+            <div>IP品牌方:</div>
           </div>
           <el-switch v-model="value1" />
         </div>
