@@ -99,7 +99,14 @@
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
-        }
+        },
+		{
+		    "path": "pages/item_auction/item_auction",
+		    "style": {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		}
     ],
     "globalStyle": {
         "navigationBarTextStyle": "black",

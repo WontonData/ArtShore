@@ -55,22 +55,30 @@
 	                  <div class="item__container">
 	                    <div class="item__box js-tabs-item" style="display: block;">
 	                      <div class="item__users">
+							  
+							  <div class="item__user">
+							    <div class="item__avatar"><img src="/static/img/content/avatar-3.png" alt="Avatar">
+							      <div class="item__reward"><img src="/static/img/content/reward-1.svg" alt="Reward"></div>
+							    </div>
+							    <div class="item__description">
+							      <div class="item__name">Chillin</div>
+							      <div class="item__action">将 {<span>{{title}} # {{tokenid}}</span>} 出售</div>
+							    </div>
+							    <div class="item__time">2022-4-8 14:54</div>
+							  </div>
+							  
 	                        <div class="item__user">
-	                          <div class="item__avatar"><img src="/static/img/content/avatar-2.jpg" alt="Avatar">
+	                          <div class="item__avatar"><img src="/static/img/content/avatar-3.png" alt="Avatar">
 	                            <div class="item__reward"><img src="/static/img/content/reward-1.svg" alt="Reward"></div>
 	                          </div>
 	                          <div class="item__description">
-	                            <div class="item__position">Owner</div>
-	                            <div class="item__name">Raquel Will</div>
+	                            <div class="item__name">Chillin</div>
+	                            <div class="item__action">创建了 {<span>{{title}} # {{tokenid}}</span>} </div>
 	                          </div>
+	                          <div class="item__time">2022-4-8 13:00</div>
 	                        </div>
-	                        <div class="item__user">
-	                          <div class="item__avatar"><img src="/static/img/content/avatar-1.jpg" alt="Avatar"></div>
-	                          <div class="item__description">
-	                            <div class="item__position">Creator</div>
-	                            <div class="item__name">Selina Mayert</div>
-	                          </div>
-	                        </div>
+							
+							
 	                      </div>
 	                    </div>
 	                    <div class="item__box js-tabs-item">
@@ -140,7 +148,7 @@
 	          </div>
 			  
 			  
-			  <el-dialog class="dialog" width="36%" v-model="checkout" center>
+			  <el-dialog class="dialog" width="27%" v-model="checkout" center>
 				 <div class="popup__item" style="display: block;">
 				   <div class="popup__title h4">确认购买</div>
 				   <div class="popup__info">你确定要购买&nbsp;&nbsp;&nbsp; <strong> ZCC </strong> &nbsp;&nbsp;&nbsp;发行的 &nbsp;&nbsp;&nbsp;<strong> {{title}} </strong>&nbsp;&nbsp;&nbsp;吗？费用如下</div>
@@ -160,11 +168,6 @@
 				     </div>
 				   </div>
 				   <div class="popup__attention">
-				     <div class="popup__preview">
-				       <svg class="icon icon-info-circle">
-				         <use xlink:href="#icon-info-circle"></use>
-				       </svg>
-				     </div>
 				     <div class="popup__details">
 				       <div class="popup__category">数字藏品仅供收藏，请勿向他人售卖</div>
 				       <div class="popup__text"></div>
@@ -177,7 +180,7 @@
 				 </div>
 			  </el-dialog>
 			  
-			  <el-dialog class="dialog"  width="36%"  v-model="paypage" center>
+			  <el-dialog class="dialog"  width="27%"  v-model="paypage" center>
 				  <div class="popup__item" style="display: block;">
 				    <div class="popup__title h4">请支付......</div>
 				    <div class="steps">
@@ -188,7 +191,7 @@
 				          </div>
 				          <div class="steps__details">
 				            <div class="steps__info">正在支付</div>
-				            <div class="steps__text">请在支付宝中支付相应的金额</div>
+				            <div class="steps__text">请使用支付宝支付</div>
 				          </div>
 				        </div>
 				      </div>
@@ -207,7 +210,7 @@
 				  </div>
 			  </el-dialog>
 			  
-			  <el-dialog class="dialog" width="36%"  v-model="buyok" center>
+			  <el-dialog class="dialog" width="27%"  v-model="buyok" center>
 				  <div class="popup__item" style="display: block;">
 				    <div class="success">
 				      <div class="success__title h2">购买成功! <span role="img" aria-label="firework">🎉</span></div>

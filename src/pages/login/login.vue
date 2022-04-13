@@ -38,31 +38,31 @@
         "
       >
         <h3 class="login-title">欢迎登录</h3>
-        <div class=" flex felx-row justify-center gap-2">
-          <div class="flex align-middle items-center text-lg font-bold">
+        <div class="grid grid-cols-3 gap-1 mt-3">
+          <div class="col-start-1 align-middle items-center text-lg font-bold text-right">
             <div>账号:</div>
           </div>
           <input
             type="text"
-            class=""
+            class="col-start-2 col-span-2"
             placeholder="请输入账号"
             v-model="form.username"
           />
         </div>
-        <div class=" flex felx-row justify-center gap-2 mt-3">
-          <div class="flex align-middle items-center text-lg font-bold">
+        <div class="grid grid-cols-3 gap-1 mt-3">
+          <div class="col-start-1 align-middle items-center text-lg font-bold text-right">
             <div>密码:</div>
           </div>
           <input
-            type="text"
-            class=""
+            type="password"
+            class="col-start-2 col-span-2"
             placeholder="请输入密码"
             v-model="form.password"
           />
         </div>
 
-        <div class=" flex felx-row justify-left gap-2 mt-3">
-          <div class="flex align-middle items-center text-lg font-bold">
+        <div class="grid grid-cols-3 gap-1 mt-3">
+          <div class="col-start-1 align-middle items-center text-lg font-bold text-right">
             <div>IP品牌方:</div>
           </div>
           <el-switch v-model="value1" />

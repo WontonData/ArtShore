@@ -30,22 +30,26 @@
 		  :address="item.address" :art_src="item.url" 
 		  :sellout="(item.creator!=item.owner)&(item.creator!=null)"></card1-1-1>						
 		  </div>
-		  
 
 
-		  		<el-dialog class="dialog" width="36%"  v-model="checkout" center>
+		  		<el-dialog class="dialog" width="27%"  v-model="checkout" center>
 				 <div class="popup__item" style="display: block;">
 				   <div class="popup__title h4">确认购买</div>
-				   <div class="popup__info">你确定要购买此NFT盲盒吗？费用如下</div>
+				   <div class="popup__info" >你确定要购买此NFT盲盒吗？</div>
+				   <el-image
+				        style="width: 100% ;margin:0 auto"
+				        :src="blind_default"
+				        :fit="fit">
+				      </el-image>
 				   <div class="popup__table">
-				     <div class="popup__row">
+				     <!-- <div class="popup__row">
 				       <div class="popup__col">9.98</div>
 				       <div class="popup__col">CNY</div>
-				     </div>
-				     <div class="popup__row">
+				     </div> -->
+				    <!-- <div class="popup__row">
 				       <div class="popup__col">你的余额</div>
 				       <div class="popup__col">0.0 CNY</div>
-				     </div>
+				     </div> -->
 
 				     <div class="popup__row">
 				       <div class="popup__col">你将支付</div>
@@ -53,11 +57,6 @@
 				     </div>
 				   </div>
 				   <div class="popup__attention">
-				     <div class="popup__preview">
-				       <svg class="icon icon-info-circle">
-				         <use xlink:href="#icon-info-circle"></use>
-				       </svg>
-				     </div>
 				     <div class="popup__details">
 				       <div class="popup__category">数字藏品仅供收藏，请勿向他人售卖</div>
 				       <div class="popup__text"></div>
@@ -70,7 +69,7 @@
 				 </div>
 			  </el-dialog>
 			  
-			  <el-dialog class="dialog" width="36%"  v-model="paypage" center>
+			  <el-dialog class="dialog" width="27%"  v-model="paypage" center>
 				  <div class="popup__item" style="display: block;">
 				    <div class="popup__title h4">请支付......</div>
 				    <div class="steps">
@@ -81,7 +80,7 @@
 				          </div>
 				          <div class="steps__details">
 				            <div class="steps__info">正在支付</div>
-				            <div class="steps__text">请在支付宝中支付相应的金额</div>
+				            <div class="steps__text">请使用支付宝支付</div>
 				          </div>
 				        </div>
 				      </div>
@@ -100,7 +99,7 @@
 				  </div>
 			  </el-dialog>
 			  
-			  <el-dialog class="dialog" width="36%"  v-model="buyok" center>
+			  <el-dialog class="dialog" width="27%"  v-model="buyok" center>
 				  <div class="popup__item" style="display: block;">
 				    <div class="success">
 				      <div class="success__title h2">购买成功! <span role="img" aria-label="firework">🎉</span></div>
@@ -160,6 +159,7 @@
 
 				base_url:"",
 				which_buy_url:"",
+				blind_default:"/static/img/content/blind_default.png",
 
 				 checkout: false,
 				 paypage: false,

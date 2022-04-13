@@ -27,7 +27,7 @@
 			          <div class="profile__body">
 			            <div class="profile__center center">
 			              <div class="user">
-			                <div class="user__avatar"><img src="/static/img/content/avatar-big.jpg" alt="Avatar"></div>
+			                <div class="user__avatar"><img src="/static/img/content/avatar-2.png" alt="Avatar"></div>
 			                <div class="user__name">{{name}}</div>
 							<br>
 			                <div class="user__code">
@@ -39,7 +39,7 @@
 			                  </button> -->
 			                </div>
 							
-			                <div class="user__info">{{intro}}</div><a class="user__site" href="https://ui8.net" target="_blank">
+			                <div class="user__info">{{intro}}</div><a class="user__site" target="_blank">
 			                  <!-- <svg class="icon icon-globe">
 			                    <use xlink:href="#icon-globe"></use>
 			                  </svg> -->
@@ -63,19 +63,19 @@
 			                  </div>
 			                </div>
 			                <div class="user__socials">
-								<a class="user__social" href="https://twitter.com/ui8" target="_blank">
+								<a class="user__social"  target="_blank">
 			                    <!-- <svg class="icon icon-twitter">
 			                      <use xlink:href="#icon-twitter"></use>
 			                    </svg> -->
 								<img class="icon icon-qq" src="../../static/icon/QQ.png"/>
 								</a>
-								<a class="user__social" href="https://www.instagram.com/ui8net/" target="_blank">
+								<a class="user__social"  target="_blank">
 			                    <!-- <svg class="icon icon-instagram">
 			                      <use xlink:href="#icon-instagram"></use>
 			                    </svg> -->
 								<img class="icon icon-wechat" src="../../static/icon/wechat.png"/>
 								</a>
-								<a class="user__social" href="https://www.facebook.com/ui8.net/" target="_blank">
+								<a class="user__social"  target="_blank">
 			                    <!-- <svg class="icon icon-facebook">
 			                      <use xlink:href="#icon-facebook"></use>
 			                    </svg> -->
@@ -130,9 +130,9 @@
 			return {
 				list_have:'',
 				list_creat:'',
-				name:"水王",
+				name:"Zhang",
 				token:"0xc4c16a645...b21a",
-				intro:"A wholesome farm owner in Montana. Upcoming gallery solo show in Germany",
+				intro:"艺术并不是真理。艺术是谎言，然而这种谎言能教育我们去认识真理。——毕加索",
 				
 				is_own_active:true,
 				is_creat_active:false
