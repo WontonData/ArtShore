@@ -1,0 +1,45 @@
+name: CI
+on:
+  push:
+    branches:
+      - vue3
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.X]
+    
+    steps:
+    - uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    # - name: Checkout
+    #   uses: actions/checkout@v2
+    #   with:
+    #     persist-credentials: false
+        
+    # react项目为npm run-script build， vue项目改为npm run build
+    - name: Install and Build
+      run: |
+        npm install
+        npm run build:h5
+     
+    # react项目的FOLDER为build， vue项目改为dist   
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACTION_ACCESS }}
+        BRANCH: gh-pages
+        FOLDER: dist/build/h5
