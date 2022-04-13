@@ -1,6 +1,6 @@
 <!--
  * @Author: OOO--li--OOO
- * @LastEditTime: 2022-04-12 18:21:13
+ * @LastEditTime: 2022-04-13 19:27:37
 -->
 
 <script setup>
@@ -98,6 +98,7 @@ let MetaMap = {
   "": new Meta("", "", ""),
 };
 
+let isSearch = ref(false)
 let isFound = ref(false);
 let foundMeta = reactive(new Meta());
 let url = ref("");
@@ -107,6 +108,7 @@ console.log(sha256);
 let theCheckFile = reactive({});
 function checkFile() {
   isFound.value = false;
+  isSearch.value = false;
   // proxy.$$nextTick(()=>{
 
   // })
@@ -114,7 +116,8 @@ function checkFile() {
     isLoading.value = true;
     setTimeout(() => {
       isLoading.value = false;
-    }, 2200);
+      isSearch.value = true;
+    }, 2500);
     // setTimeout(() => {
     proxy.$nextTick(()=>{
       let fc = theCheckFile.fc;
@@ -183,22 +186,30 @@ function checkFile() {
               <div class="btn w-32 p-4" @click="checkFile">验证</div>
             </div>
 
-            <div class="w-full h-full pl-5 pr-5 grid grid-cols-2">
+            <div class="w-full h-full  grid sm:grid-cols-1 md:grid-cols-2 p-0 md:pl-5 md:pr-5">
               <div class="flex justify-center">
-                <FileSelectSingle class="w-40 mt-28" :theFile="theCheckFile" />
+                <FileSelectSingle class=" w-40 sm:w-40 md:w-40 mt-1 md:mt-28" :theFile="theCheckFile" />
               </div>
               <div
                 class="
                   flex
+                  flex-col
+                  min-h-[25rem]
                   justify-center
+                  content-center
+                  justify-items-center
+                  items-center
                   border-2 border-solid
                   rounded-lg
-                  p-10
+                  p-1
+                  md:p-10
                   bg-gray-100 bg-opacity-50
                 "
                 v-loading="isLoading"
               >
-              <!-- <div v-show="isFound">找到</div> -->
+              <div v-show="isFound" class=" font-bold text-red-500 m-2">找到相同的NFT，您不可再次上传</div>
+              <div v-show="!isFound && isSearch" class=" font-bold text-green-500">未找到相关NFT，您可上传此图片作为NFT</div>
+              <div v-show="!isSearch">选择图片来进行识别</div>
                 <card1
                   class="
                     card1
