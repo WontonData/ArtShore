@@ -128,7 +128,7 @@
 				bid_info: [{
 					name: 'Binbin Xu',
 					money: 11.66,
-					time: 'Jun 14 - 4:15 PM',
+					time: 'Jun 14 - 4:15',
 					url: '../../static/img/content/avatar-3.png'
 				}, ],
 				show_place_bid: false,
@@ -137,6 +137,20 @@
 		},
 		methods: {
 			place_a_bid(event) {
+				let today = new Date();
+				var month=new Array(12)
+				month[0]="Jan"
+				month[1]="Feb"
+				month[2]="Mar"
+				month[3]="Apr"
+				month[4]="May"
+				month[5]="Jun"
+				month[6]="Jul"
+				month[7]="Aug"
+				month[8]="Sep"
+				month[9]="Oct"
+				month[10]="Nov"
+				month[11]="Dec"
 				this.show_load = true;
 				setTimeout(() => {
 					this.show_load = false;
@@ -147,7 +161,8 @@
 					this.bid_info.push({
 						name: "CC Z",
 						money: this.place_price,
-						time: "Jun 14 - 4:15 PM",
+						
+						time: (month[today.getMonth()])+" "+(today.getDay()+10)+" - "+today.getHours()+":"+today.getMinutes(),
 						url: "../../static/img/content/avatar-2.png"
 					});
 				}, "1000");
