@@ -28,7 +28,7 @@
 
 					<card1-1-1 class="mycard" v-for="(item,index) in list" :title="item.name" price="9.98" creater="xxx"
 						:tokenid="item.tokenId" :art_id="item.id" :address="item.address" :art_src="item.url"
-						:sellout="(item.creator!=item.owner)&(item.creator!=null)"></card1-1-1>
+						:sellout="(item.creator!=item.owner)&(item.creator!=null)" :is_golden="index==0"></card1-1-1>
 				</div>
 
 

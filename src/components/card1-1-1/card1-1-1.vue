@@ -5,7 +5,8 @@
 				<!-- <img srcSet="static/img/content/card-pic-1@2x.jpg 2x" src="static/img/content/card-pic-1.jpg" alt="Card preview"/> -->
 				<img :srcSet="art_src" :src="art_src" alt="Card preview" />
 		 	<div class="card__control">
-					<div class="status-green card__category">隐藏款</div>
+					<div class="status-purple card__category" v-if="is_golden">隐藏款</div>
+					<div class="status-green card__category" v-if="!is_golden">普通款</div>
 				</div>
 			</div>
 			<a class="card__link">
@@ -57,6 +58,10 @@
 				default: false,
 				required: true
 			},
+			is_golden: {
+				default: false,
+				required: true
+			}
 		},
 		data() {
 			return {
