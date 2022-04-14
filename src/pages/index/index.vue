@@ -83,7 +83,7 @@
 		top: 0;
 		/* right:0rem; */
 		z-index: 11;
-		@apply text-gray-600 text-center sm: translate-y-[12vh] sm:right-[-5rem] sm:text-gray-600 md:translate-y-[50vh] md:translate-x-[-13vw] md:text-gray-700
+		@apply text-gray-600 text-center sm:translate-y-[12vh] sm:right-[-5rem] sm:text-gray-600 md:translate-y-[50vh] md:translate-x-[-13vw] md:text-gray-700
 	}
 
 	.my_button {
