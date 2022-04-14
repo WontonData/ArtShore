@@ -305,21 +305,7 @@
 					this.art_src_2x = res.data.data.url;
 				}
 			});
-		/* 	uni.request({
-				url: 'http://124.222.242.75:8080/meta/collection',
-				data: {
-					nft_address: this.address,
-				},
-				method: 'POST',
-				header: {
-					'content-type': 'application/x-www-form-urlencoded',
-					'token': token
-				},
-				success: (res) => {
-					/* this.info = res.data.data.; */
-					console.log(res.data)
-				}
-			}); */
+
 		}
 	}
 </script>
