@@ -122,10 +122,37 @@
 					</div>
 			 </el-dialog>
 
-				<el-dialog v-model="shareDialogVisible" width="32%" center>
-					<el-image style="width: 100%" :src="share_url" :fit="fit">
-					</el-image>
-			 </el-dialog>
+			<el-dialog v-model="shareDialogVisible" width="32%" center>
+				<div class="popup__item" style="display: block;">
+					<div class="success">
+						<el-image style="width: 100%" :src="which_buy_url" :fit="fit">
+						</el-image>
+						<div class="popup__title h4">快来看我购买的数字艺术品吧</div>
+						<div class="success__table">
+							<div class="success__row">
+								<div class="success__col">名称</div>
+								<div class="success__col">Cute Friend#1</div>
+							</div>
+							<div class="success__row">
+					  	<div class="success__col">藏品唯一id</div>
+								<div class="success__col">0msx836930...87r398</div>
+							</div>
+							<div class="success__row">
+						  <div class="success__col">所属人</div>
+								<div class="success__col">Zhang</div>
+							</div>
+						</div>
+						<el-row>
+							<el-col :span="17"><div class="success__stage h5">--来自ArtShore--<br><h6>数字艺术品的黄金海岸</h6></div></el-col>
+							<el-col :span="3"></el-col>
+							<el-col :span="4"><el-image style="width: 100%;float: right;" src="/static/img/content/share_qr.png" :fit="fit">
+						</el-image></el-col>
+						</el-row>
+					</div>
+				</div>
+				<!-- <el-image style="width: 100%" :src="share_url" :fit="fit">
+				</el-image> -->
+			</el-dialog>
 
 
 
@@ -169,14 +196,14 @@
 			share(event) {
 				this.buyok = false;
 				this.shareDialogVisible = true;
-				this.share_url = "https://tenapi.cn/poster/?qrcode=" + this.myurl +
+				/* this.share_url = "https://tenapi.cn/poster/?qrcode=" + this.myurl +
 					"&title=我在ArtShore购买了盲盒" +
 					"&content=" + this.info +
 					"&site=" + "ArtShore" +
 					"&info=" + "数字艺术的黄金海岸" +
 				+"&author=" + this.creater +
 					"&pic=" + this.which_buy_url;
-				console.log(this.share_url);
+				console.log(this.share_url); */
 			},
 			topay(event) {
 				this.checkout = false;
