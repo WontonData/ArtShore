@@ -5,12 +5,15 @@
 				<all-header></all-header>
 			</el-header>
 			<view class="outer__inner my_inner">
-				<div class="img1 w-full h-[100vh] cover bg-no-repeat bg-cover bg-left sm:bg-left md:bg-center md:h-[100vh] "
+				<!-- <div class="img1 w-full h-[100vh] cover bg-no-repeat bg-cover bg-left sm:bg-left md:bg-center md:h-[100vh] "
 					mode="aspecFill" style="background-image: url(/static/img/content/index_bg.png)"
 					@error="imageError">
 
 
-				</div>
+				</div> -->
+				<image style="width: 100%; height: 100vh; background-color: #eeeeee;" mode="widthFix"
+					src="/static/img/content/index_bg.png" @error="imageError">
+				</image>
 
 				<div class="main__head">
 					<h3 class="main__title h3">数字艺术品的黄金海岸</h3>
