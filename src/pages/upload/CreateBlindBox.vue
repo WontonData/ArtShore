@@ -2,5 +2,5 @@
 </script>
 
 <template>
-  <CreateNft :isBlindBox="true"/>
+	<CreateNft :isBlindBox="true" />
 </template>

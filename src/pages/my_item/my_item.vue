@@ -16,27 +16,6 @@
 									<div class="status-purple item__category">可购买</div>
 								</div><img :srcSet="art_src_2x" :src="art_src" alt="Item">
 							</div>
-							<!-- 	                <div class="options">
-	                  <div class="options__list">
-	                    <button class="button-circle-stroke options__button options__button_share js-options-share">
-	                      <svg class="icon icon-share">
-	                        <use xlink:href="#icon-share"></use>
-	                      </svg>
-	                    </button>
-	                    <button class="button-circle-stroke options__button options__button_favorite active">
-	                      <svg class="icon icon-heart">
-	                        <use xlink:href="#icon-heart"></use>
-	                      </svg>
-	                    </button>
-	                    <div class="actions js-actions">
-	                      <button class="button-circle-stroke actions__button js-actions-button">
-	                        <svg class="icon icon-more">
-	                          <use xlink:href="#icon-more"></use>
-	                        </svg>
-	                      </button>
-	                    </div>
-	                  </div>
-	                </div> -->
 						</div>
 						<div class="item__details">
 							<h1 class="item__title h3">{{title}} # {{tokenid}}</h1>
@@ -47,7 +26,7 @@
 							</div>
 
 							<div class="item__text">{{info}}
-								<a href="https://ui8.net" target="_blank">{{url}}</a>
+								<a :href="myurl" target="_blank">{{myurl_text.substring(0,38)}}...</a>
 							</div>
 
 							<div class="item__tabs js-tabs">
@@ -65,7 +44,8 @@
 												</div>
 												<div class="item__description">
 													<div class="item__name">Zhang</div>
-													<div class="item__action">购买了 {<span>{{title}} # {{tokenid}}</span>}</div>
+													<div class="item__action">购买了 {<span>{{title}} # {{tokenid}}</span>}
+													</div>
 												</div>
 												<div class="item__time">2022-4-9 13:24</div>
 											</div>
@@ -209,8 +189,9 @@
 				art_src_2x: "/static/img/content/item-pic@2x.jpg 2x",
 				title: "令人惊叹的艺术品",
 				price: "2.5",
-				info: "这张NFT卡可以让你使用特殊的空投。欲了解更多有关的信息，请访问",
-				myurl: "https://go.zcc76.xyz",
+				info: "链上HASH:",
+				myurl_text: "0x04f9c607b2925cece9703ae991ad78aa212ddc8ba3fbc609a57d3763def59d13",
+				myurl: "http://124.222.242.75:5100/#/transaction/transactionDetail?pkHash=0x00eef72bb16446a1d9f2089a8792b170324ab12a373e83d36c519afa57a126ec",
 				to: '',
 				creater: '水王',
 				checkout: false,

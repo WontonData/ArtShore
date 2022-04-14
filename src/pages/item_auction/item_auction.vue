@@ -40,8 +40,7 @@
 
 											<div class="item__user" v-for="(item,index) in bid_info"
 												v-show="index>bid_info.length-4">
-												<div class="item__avatar"><img :src="item.url"
-														alt="Avatar">
+												<div class="item__avatar"><img :src="item.url" alt="Avatar">
 													<div class="item__reward"><img
 															src="/static/img/content/reward-1.svg" alt="Reward"></div>
 												</div>
@@ -62,8 +61,7 @@
 
 							<div class="item__control">
 								<div class="item__head">
-									<div class="item__avatar"><img :src="highest_url"
-											alt="Avatar"></div>
+									<div class="item__avatar"><img :src="highest_url" alt="Avatar"></div>
 									<div class="item__description">
 										<div class="item__info">目前最高出价者 <span>{{highest_name}}</span></div>
 										<div class="item__currency">
@@ -124,34 +122,38 @@
 				share_url: "",
 				fit: "contain",
 				highest_price: 11.66,
-				highest_name:"Binbin Xu",
-				highest_url:"../../static/img/content/avatar-3.png",
-				place_price:0.00,
-				bid_info: [
-					{
-						name: 'Binbin Xu',
-						money: 11.66,
-						time: 'Jun 14 - 4:15 PM',
-						url:'../../static/img/content/avatar-3.png'
-					},
-				],
+				highest_name: "Binbin Xu",
+				highest_url: "../../static/img/content/avatar-3.png",
+				place_price: 0.00,
+				bid_info: [{
+					name: 'Binbin Xu',
+					money: 11.66,
+					time: 'Jun 14 - 4:15 PM',
+					url: '../../static/img/content/avatar-3.png'
+				}, ],
 				show_place_bid: false,
-				show_load:false,
+				show_load: false,
 			}
 		},
 		methods: {
-			place_a_bid(event){
-				this.show_load=true;
-				setTimeout(()=>{
-				    this.show_load=false;this.show_place_bid = false;
+			place_a_bid(event) {
+				this.show_load = true;
+				setTimeout(() => {
+					this.show_load = false;
+					this.show_place_bid = false;
 					this.highest_price = this.place_price;
 					this.highest_name = "CCZ";
 					this.highest_url = "../../static/img/content/avatar-2.png";
-					this.bid_info.push({name:"CC Z",money:this.place_price,time:"Jun 14 - 4:15 PM",url:"../../static/img/content/avatar-2.png"});
-				},"1000");
-				
+					this.bid_info.push({
+						name: "CC Z",
+						money: this.place_price,
+						time: "Jun 14 - 4:15 PM",
+						url: "../../static/img/content/avatar-2.png"
+					});
+				}, "1000");
+
 			},
-			cancel_place(event){
+			cancel_place(event) {
 				this.show_place_bid = false;
 			}
 		},

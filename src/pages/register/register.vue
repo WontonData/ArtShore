@@ -42,41 +42,46 @@
 							<div class="col-start-1 align-middle items-center text-lg font-bold text-right">
 								<div>昵称:</div>
 							</div>
-							<input type="text"  class="col-start-2 col-span-2" placeholder="请输入昵称" v-model="form.nickname" />
+							<input type="text" class="col-start-2 col-span-2" placeholder="请输入昵称"
+								v-model="form.nickname" />
 						</div>
-						
+
 						<div class="grid grid-cols-3 gap-1 mt-3">
 							<div class="col-start-1 align-middle items-center text-lg font-bold text-right">
 								<div>手机号:</div>
 							</div>
-							<input type="text" class="col-start-2 col-span-2" placeholder="请输入手机号" v-model="form.username" />
+							<input type="text" class="col-start-2 col-span-2" placeholder="请输入手机号"
+								v-model="form.username" />
 						</div>
-						<div class="grid grid-cols-3 gap-1 mt-3" >
+						<div class="grid grid-cols-3 gap-1 mt-3">
 							<div class="col-start-1 align-middle items-center text-lg font-bold text-right">
 								<div>邮箱:</div>
 							</div>
-							<input type="text"  class="col-start-2 col-span-2" placeholder="请输入邮箱" v-model="form.mail" />
+							<input type="text" class="col-start-2 col-span-2" placeholder="请输入邮箱" v-model="form.mail" />
 						</div>
-						
+
 						<div class="grid grid-cols-3 gap-1 mt-3">
 							<div class="col-start-1 align-middle items-center text-lg font-bold text-right">
 								<div>身份证号:</div>
 							</div>
-							<input type="text"  class="col-start-2 col-span-2" placeholder="请输入身份证号" v-model="form.id_crad" />
+							<input type="text" class="col-start-2 col-span-2" placeholder="请输入身份证号"
+								v-model="form.id_crad" />
 						</div>
-						
+
 						<div class="grid grid-cols-3 gap-1 mt-3">
 							<div class="col-start-1 align-middle items-center text-lg font-bold text-right">
 								<div>真实姓名:</div>
 							</div>
-							<input type="text"  class="col-start-2 col-span-2" placeholder="请输入真实姓名" v-model="form.id_crad" />
+							<input type="text" class="col-start-2 col-span-2" placeholder="请输入真实姓名"
+								v-model="form.id_crad" />
 						</div>
-						
+
 						<div class="grid grid-cols-3 gap-1 mt-3">
 							<div class="col-start-1 align-middle items-center text-lg font-bold text-right">
 								<div>个性签名:</div>
 							</div>
-							<input type="text"  class="col-start-2 col-span-2" placeholder="请输入签名" v-model="form.slogan" />
+							<input type="text" class="col-start-2 col-span-2" placeholder="请输入签名"
+								v-model="form.slogan" />
 						</div>
 
 						<div class="grid grid-cols-3 gap-1 mt-3s">
@@ -93,15 +98,17 @@
 							<div class="col-start-1 align-middle items-center text-lg font-bold text-right">
 								<div>密码:</div>
 							</div>
-							<input type="text"  class="col-start-2 col-span-2" placeholder="请输入密码" v-model="form.password" />
+							<input type="text" class="col-start-2 col-span-2" placeholder="请输入密码"
+								v-model="form.password" />
 						</div>
 						<div class="grid grid-cols-3 gap-1 mt-3">
 							<div class="col-start-1 align-middle items-center text-lg font-bold text-right">
 								<div>确认密码:</div>
 							</div>
-							<input type="text"  class="col-start-2 col-span-2" placeholder="请输入密码" v-model="form.password" />
+							<input type="text" class="col-start-2 col-span-2" placeholder="请输入密码"
+								v-model="form.password" />
 						</div>
-						
+
 						<div class="btn-group flex felx-row mt-8 mt-3">
 							<button class="btn bg-yellow-400 leading-6 hover:bg-yellow-600"
 								@click="onRegisterSubmit('registerForm')">

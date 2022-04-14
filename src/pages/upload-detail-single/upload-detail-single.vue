@@ -1,16 +1,16 @@
 <template>
 	<view class="body">
-	<view class="outer">
-	  <el-header>
-	    <all-header></all-header>
-	  </el-header>
-	  <view class="outer__inner">
-		  
+		<view class="outer">
+			<el-header>
+				<all-header></all-header>
+			</el-header>
+			<view class="outer__inner">
 
-		  
-		  
-	  </view>
-	</view>
+
+
+
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -18,16 +18,13 @@
 	export default {
 		data() {
 			return {
-				
+
 			}
 		},
 		methods: {
-			
+
 		}
-	}//
-	
-	
-	
+	} //
 </script>
 
 <style>
