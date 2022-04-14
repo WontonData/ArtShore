@@ -35,11 +35,18 @@ jobs:
       run: |
         npm install
         npm run build:h5
-     
-    # react项目的FOLDER为build， vue项目改为dist   
+
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.ACTION_ACCESS }}
-        BRANCH: gh-pages
-        FOLDER: dist/build/h5
+      run: |
+        build_dir="/home/runner/.ssh"
+        if [ ! -d "$build_dir" ]; then
+          mkdir $build_dir
+        fi
+        touch ~/.ssh/known_hosts
+        touch ./id_rsa_2048
+        echo '${{ secrets.WEB_PRIVATE_KEY }}' >> ./id_rsa_2048
+        chmod 600 ./id_rsa_2048
+        ssh-keyscan ${{ secrets.WEB_HOST }} >> ~/.ssh/known_hosts
+        chmod -R 777 ./dist
+        rsync -Pazur -e "ssh -i ./id_rsa_2048" ./dist/build bot@${{ secrets.WEB_HOST }}:/home/bot/nft
+     
