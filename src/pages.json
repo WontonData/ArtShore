@@ -6,111 +6,112 @@
         {
             "path": "pages/index/index",
             "style": {
+                "navigationBarTitleText": "ArtShore",
                 "navigationStyle": "custom"
             }
         },
         {
             "path": "pages/search/search",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/item/item",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/profile/profile",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/upload/upload",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/upload-detail-single/upload-detail-single",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/login/login",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/register/register",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/my_item/my_item",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/upload/CreateNft",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/upload/CreateBlindBox",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/checkNft/checkNft",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/series_item/series_item",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/item_blind/item_blind",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
         {
             "path": "pages/task/task",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "ArtShore",
                 "enablePullDownRefresh": false
             }
         },
 		{
 		    "path": "pages/item_auction/item_auction",
 		    "style": {
-		        "navigationBarTitleText": "",
+		        "navigationBarTitleText": "ArtShore",
 		        "enablePullDownRefresh": false
 		    }
 		}
