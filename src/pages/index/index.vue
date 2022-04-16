@@ -11,8 +11,8 @@
 
 
 				</div> -->
-				<image style="width: 100%; height: 100vh; background-color: #eeeeee;" mode="widthFix"
-					src="/static/img/content/index_bg.png" @error="imageError">
+				<image style="width: 100%; background-color: #eeeeee;" mode="widthFix"
+					src="https://nft-1306406918.cos.ap-shanghai.myqcloud.com/ArtShore%2Findex_bg-Y.jpg" @error="imageError">
 				</image>
 
 				<div class="main__head">
@@ -22,7 +22,7 @@
 				</div>
 
 				<image style="width: 100%; height: 100vh; background-color: #eeeeee;" mode="widthFix"
-					src="/static/img/content/index_bg_2.png" @error="imageError">
+					src="https://nft-1306406918.cos.ap-shanghai.myqcloud.com/ArtShore/index_bg_2-Y.jpg" @error="imageError">
 				</image>
 				<a class="button-stroke my_button" href="http://124.222.242.75:88/"> 体验画廊 </a>
 
