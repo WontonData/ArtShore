@@ -26,7 +26,7 @@
 					<div class="card__line">
 						<div class="card__users">
 						</div>
-						<div class="card__counter">{{follow_num}}人拥有同系列</div>
+						<div class="card__counter">1人拥有同系列</div>
 					</div>
 				</div>
 				<div class="card__foot">
