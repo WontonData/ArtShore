@@ -1,6 +1,6 @@
 <!--
  * @Author: OOO--li--OOO
- * @LastEditTime: 2022-04-16 22:37:26
+ * @LastEditTime: 2022-04-16 22:41:39
 -->
 
 <script setup>
@@ -104,7 +104,7 @@
 			"https://nft-1306406918.cos.ap-shanghai.myqcloud.com/0xdb8cca5053b03032ea4a31363164f41f4a9fe614/4",
 			4
 		),
-		"9e9af3aa9286c2373dc463a54530fd0292a739473a6ec0c6402ed0b30c71ca3b": new Meta("0x916e555c66ead4a0d3ed46f816126c1f3d048dc7", "TronsWar", "https://nft-1306406918.cos.ap-shanghai.myqcloud.com/0x916e555c66ead4a0d3ed46f816126c1f3d048dc7/5"),
+		"9e9af3aa9286c2373dc463a54530fd0292a739473a6ec0c6402ed0b30c71ca3b": new Meta("0x916e555c66ead4a0d3ed46f816126c1f3d048dc7", "TronsWar", "https://nft-1306406918.cos.ap-shanghai.myqcloud.com/0x916e555c66ead4a0d3ed46f816126c1f3d048dc7/5",5),
 	};
 
 	let isSearch = ref(false)
