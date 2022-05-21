@@ -11,6 +11,9 @@ const emit = defineEmits(['selected'])
 // String
 let props = defineProps({
   theFile: Object,
+  
+  //zcc add
+  default_pic: String,
 })
 // let theFile = toRef(props, 'theFile')
 let hasSelected = ref(false)
@@ -67,6 +70,7 @@ async function onClick(){
     <!-- <div class="container box-content bg-gray-100 min-h-[4rem] max-h-full w-6/6 flex flex-row flex-wrap "> -->
       <div class="border-dashed box-border border-4 border-gray-500 bg-gray-100 bg-opacity-50  w-full h-40 flex flex-col-reverse rounded-xl text-center"  v-loading="loading">
         <img v-if="hasSelected" :src="theFile.fc" class=" w-full h-40 object-scale-down z-0 rounded-xl"  @click="onClick"/>
+		<img v-if="!hasSelected" :src="default_pic" class=" w-full h-40 object-scale-down z-0 rounded-xl"  @click="onClick"/>
         <!-- <div class="z-10">{{file.Count}}</div> -->
         
         <!-- <input type="text" class=" items-center text-center z-10  rounded-md opacity-80 bg-indigo-200 overflow-hidden font-bold p-0" v-model="file.count"> -->
