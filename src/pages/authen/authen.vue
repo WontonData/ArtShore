@@ -1,7 +1,3 @@
-<!--
- * @Author: OOO--li--OOO
- * @LastEditTime: 2022-04-14 20:25:46
--->
 <script setup>
 	import {
 		ref,
@@ -10,7 +6,8 @@
 	} from "vue";
 	import {
 		nftCreateItem,
-		nftCreateBlindBox
+		nftCreateBlindBox,
+		uploadIDC
 	} from "../../utils/request.js";
 	import FileSelectIdCard from "@/components/FileSelectIdCard.vue";
 
@@ -26,6 +23,7 @@
 			pillFile: "../../static/icon/globe.png"
 		};
 	}
+
 
 	function NftFile() {
 		return {
@@ -45,12 +43,54 @@
 			(this.dataURL = dataURL);
 		}
 	}
-	let coverFile = new TheFile();
-	let pillFile = new TheFile();
-	let priceType = new ref(false);
-	let endTime = new ref("");
-	let uploading = ref(false);
 
+	let idc_head = new TheFile();
+	let idc_icon = new TheFile();
+	let idc_man = new TheFile();
+	let uploading = ref(false);
+	let user_id = ref(0);
+
+	uni.getStorage({
+		key: "user",
+		success: function(res) {
+		    user_id.value = res.data.id;
+		},
+	});
+
+	function uploadIDCard() {
+		uploading.value = true;
+
+		proxy.$nextTick(() => {
+			setTimeout(() => {
+				uploadIDC(idc_head.fc, idc_icon.fc, idc_man.fc, user_id.value)
+					.then((res) => {
+						if (res.data.code == 200) {
+							proxy.$notify({
+								title: "验证成功",
+								message: "你已成功认证",
+								type: "success",
+							});
+						} else {
+							proxy.$notify({
+								title: "验证失败",
+								message: res.data.message,
+								type: "error",
+							});
+						}
+						uploading.value = false;
+					})
+					.catch(() => {
+						proxy.$notify({
+							title: "验证失败",
+							message: res.data.message,
+							type: "error",
+						});
+						uploading.value = false;
+					});
+			}, 100);
+		});
+		
+	}
 </script>
 
 <template>
@@ -98,14 +138,16 @@
 								<div class="w-5/12">
 									<div class="w-60 float-right">
 										<div class="text-center title">身份证人像面</div>
-										<FileSelectIdCard class="w-60" :theFile="idc_head" default_pic="../static/img/content/idc_head.png"/>
+										<FileSelectIdCard class="w-60" :theFile="idc_head"
+											default_pic="../static/img/content/idc_head.png" />
 									</div>
 								</div>
 								<div class="w-2/12"></div>
 								<div class="w-5/12">
 									<div class="w-60 float-left">
 										<div class="text-center title">身份证国徽面</div>
-										<FileSelectIdCard class="w-60" :theFile="idc_icon" default_pic="../static/img/content/idc_icon.png"/>
+										<FileSelectIdCard class="w-60" :theFile="idc_icon"
+											default_pic="../static/img/content/idc_icon.png" />
 									</div>
 								</div>
 							</div>
@@ -114,20 +156,21 @@
 						<div class="flex flex-col w-full mt-8">
 							<div class="flex flex-row">
 								<div class="w-1/3">
-									
+
 								</div>
 								<div class="w-1/3">
 									<div class="w-full float-none">
 										<div class="text-center title">手持身份证正面照</div>
-										<FileSelectIdCard class="w-full" :theFile="idc_man" default_pic="../static/img/content/idc_man.png"/>
+										<FileSelectIdCard class="w-full" :theFile="idc_man"
+											default_pic="../static/img/content/idc_man.png" />
 									</div>
 								</div>
 								<div class="w-1/3">
-									
+
 								</div>
 							</div>
 						</div>
-						<button class="btn mt-8 mb-8 leading-7" @click="uploadNft">
+						<button class="btn mt-8 mb-8 leading-7" @click="uploadIDCard">
 							上传
 						</button>
 					</div>

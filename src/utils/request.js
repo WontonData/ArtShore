@@ -1,4 +1,3 @@
-
 import qs from "qs";
 export let login = (username, password) => {
   return uni.request({
@@ -45,6 +44,23 @@ export let nftCreateBlindBox = async function (nft, coverFile, pillFile, files) 
       coverFile: coverFile,
       pillFile: pillFile,
       nftFileList: files,
+    },
+    {arrayFormat: 'indies',allowDots: true}),
+    method: 'POST',
+    header: {
+      'content-type': 'application/x-www-form-urlencoded'
+    }
+  })
+}
+
+export let uploadIDC = async function (frontImg, backImg, faceImg, user_id) {
+  return uni.request({
+    url: 'userAuth',
+    data: qs.stringify({
+      frontImg: frontImg,
+      backImg: backImg,
+      faceImg: faceImg,
+	  user_id: user_id
     },
     {arrayFormat: 'indies',allowDots: true}),
     method: 'POST',
