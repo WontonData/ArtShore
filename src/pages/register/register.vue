@@ -176,7 +176,7 @@
 				this.$notify({
 					title: "内测阶段",
 					message: "请联系管理员获取账号~",
-					type: "success",
+					type: "warning",
 				});
 			},
 			onSubmit(formName) {
