@@ -127,24 +127,32 @@
 						"content-type": "application/x-www-form-urlencoded",
 					},
 					success: (res) => {
-						console.log(res.data.data.token);
+						if(res.statusCode==200){
+							this.$notify({
+								title: "登录成功",
+								message: "欢迎回来~",
+								type: "success",
+							});
+							uni.setStorage({
+								key: "token",
+								data: res.data.data.token,
+								success: function() {
+									console.log("success");
+								},
+							});
+							uni.redirectTo({
+								url: "../../pages/index/index",
+							});
+						}else{
+							this.$notify({
+								title: "登录失败",
+								message: "账号密码错误~",
+								type: "error",
+							});
+						}
 						//弹出侧边通知窗
-						this.$notify({
-							title: "登录成功",
-							message: "欢迎回来~",
-							type: "success",
-						});
-						uni.setStorage({
-							key: "token",
-							data: res.data.data.token,
-							success: function() {
-								console.log("success");
-							},
-						});
-						uni.redirectTo({
-							url: "../../pages/index/index",
-						});
-					},
+						
+					}
 				});
 			},
 			goRegister() {
