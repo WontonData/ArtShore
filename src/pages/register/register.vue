@@ -172,6 +172,13 @@
 			};
 		},
 		methods: {
+			onRegisterSubmit(formName) {
+				this.$notify({
+					title: "内测阶段",
+					message: "请联系管理员获取账号~",
+					type: "success",
+				});
+			},
 			onSubmit(formName) {
 				uni.request({
 					url: "http://124.222.242.75:8080/login", //仅为示例，并非真实接口地址。
